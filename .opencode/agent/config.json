@@ -1,0 +1,218 @@
+{
+  "version": "4.1-hybrid-optimized-pro",
+  "metadata": {
+    "description": "Hybrid Z.AI Pro (reasoning) + Groq (speed) multi-agent orchestration",
+    "plan": "Z.AI GLM Coding Pro-Quarterly ($45/quarter = $15/mo)",
+    "strategy": "Z.AI GLM-4.7 for orchestration, GLM-4.5 for reasoning tasks, GLM-4.6V for QA/vision, Groq for implementation",
+    "costBreakdown": "$15/mo Z.AI Pro + Groq (free) = $15/mo total",
+    "expectedPerformance": "4-5x faster than Lite plan, 3-4x faster implementations, no token quota limits",
+    "keyImprovement": "5x token allocation vs Lite, 40-60% faster inference, vision analysis capabilities"
+  },
+  "providers": {
+    "primary": "z-ai",
+    "secondary": "groq",
+    "fallback": "z-ai"
+  },
+  "agents": [
+    {
+      "name": "orchestrator-primary",
+      "mode": "primary",
+      "provider": "z-ai",
+      "model": "glm-4-7",
+      "description": "Master orchestrator - Z.AI GLM-4.7 for task decomposition, state management, agent coordination. CRITICAL bottleneck - use only GLM-4.7.",
+      "tools": ["Read", "Write", "Bash", "Task", "FunctionCall", "WebSearch", "VisionAnalyze"],
+      "maxSteps": 25,
+      "temperature": 0.25,
+      "topP": 0.95,
+      "maxTokens": 12000,
+      "priority": "CRITICAL",
+      "concurrency": 5,
+      "thinking": {
+        "enabled": true,
+        "mode": "preserved",
+        "maxThinkingTokens": 8000
+      },
+      "notes": "Now has 5x concurrency (was 2 on Lite). No more orchestration bottlenecks!"
+    },
+    {
+      "name": "architect",
+      "mode": "subagent",
+      "provider": "z-ai",
+      "model": "glm-4-5",
+      "description": "System architect - Z.AI GLM-4.5 for database schemas, API structures, deployment architecture. Downgraded from 4.7 to preserve tokens.",
+      "tools": ["Read", "Write", "FunctionCall"],
+      "maxSteps": 15,
+      "temperature": 0.2,
+      "topP": 0.9,
+      "maxTokens": 8000,
+      "priority": "CRITICAL",
+      "concurrency": 3,
+      "thinking": {
+        "enabled": true,
+        "mode": "interleaved",
+        "maxThinkingTokens": 5000
+      },
+      "notes": "Downgraded to GLM-4.5 (10x concurrency). Saves 4.7 slots for orchestrator."
+    },
+    {
+      "name": "backend-engineer",
+      "mode": "subagent",
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "modelAlternative": "mixtral-8x7b-32768",
+      "description": "Backend implementation - Groq Llama 3.3 for fast server logic, APIs, database queries.",
+      "tools": ["Read", "Write", "Bash"],
+      "maxSteps": 18,
+      "temperature": 0.3,
+      "topP": 0.95,
+      "maxTokens": 10000,
+      "priority": "HIGH",
+      "concurrency": 3,
+      "thinking": {
+        "enabled": false
+      },
+      "notes": "Groq is free and fast - maximize usage here."
+    },
+    {
+      "name": "frontend-engineer",
+      "mode": "subagent",
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "modelAlternative": "mixtral-8x7b-32768",
+      "description": "Frontend implementation - Groq Llama 3.3 for fast React/Vue/Next.js component generation.",
+      "tools": ["Read", "Write", "Bash"],
+      "maxSteps": 16,
+      "temperature": 0.3,
+      "topP": 0.95,
+      "maxTokens": 10000,
+      "priority": "HIGH",
+      "concurrency": 3,
+      "thinking": {
+        "enabled": false
+      },
+      "notes": "Groq excels at code generation - this is where it shines."
+    },
+    {
+      "name": "qa-specialist",
+      "mode": "subagent",
+      "provider": "z-ai",
+      "model": "glm-4-6v",
+      "description": "QA and testing - Z.AI GLM-4.6V for test design, vision-based UI testing, coverage analysis.",
+      "tools": ["Read", "Write", "Bash", "VisionAnalyze"],
+      "maxSteps": 14,
+      "temperature": 0.1,
+      "topP": 0.85,
+      "maxTokens": 6000,
+      "priority": "HIGH",
+      "concurrency": 10,
+      "thinking": {
+        "enabled": false
+      },
+      "notes": "GLM-4.6V has 10x concurrency. Vision analysis unlocked with Pro plan!"
+    },
+    {
+      "name": "devops-engineer",
+      "mode": "subagent",
+      "provider": "groq",
+      "model": "mixtral-8x7b-32768",
+      "modelAlternative": "llama-3.3-70b-versatile",
+      "description": "DevOps and deployment - Groq Mixtral for Docker, Kubernetes, CI/CD, Terraform, infrastructure-as-code.",
+      "tools": ["Read", "Write", "Bash"],
+      "maxSteps": 14,
+      "temperature": 0.2,
+      "topP": 0.9,
+      "maxTokens": 7000,
+      "priority": "MEDIUM",
+      "concurrency": 3,
+      "thinking": {
+        "enabled": false
+      },
+      "notes": "Groq is excellent for deployment configs and bash scripts."
+    },
+    {
+      "name": "documentation-writer",
+      "mode": "subagent",
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "modelAlternative": "mixtral-8x7b-32768",
+      "description": "Documentation and API docs - Groq Llama 3.3 for README, OpenAPI/Swagger, API docs, inline comments, deployment guides.",
+      "tools": ["Read", "Write"],
+      "maxSteps": 10,
+      "temperature": 0.2,
+      "topP": 0.85,
+      "maxTokens": 5000,
+      "priority": "MEDIUM",
+      "concurrency": 3,
+      "thinking": {
+        "enabled": false
+      },
+      "notes": "Groq handles documentation writing efficiently - saves Z.AI tokens."
+    }
+  ],
+  "workflow": {
+    "defaultAgent": "orchestrator-primary",
+    "executionStrategy": "parallel-with-coordination",
+    "maxParallelAgents": 7,
+    "stateManagement": {
+      "persistenceFile": "ORCHESTRATION_STATE.json",
+      "savepointInterval": 60,
+      "resumeOnInterrupt": true,
+      "contextWindow": 128000
+    },
+    "concurrencyControl": {
+      "z_ai_pro": {
+        "glm47_maxConcurrent": 5,
+        "glm45_maxConcurrent": 10,
+        "glm46v_maxConcurrent": 10,
+        "glm4plus_maxConcurrent": 20,
+        "total_z_ai_capacity": 45
+      },
+      "groq": {
+        "maxConcurrent": "unlimited",
+        "note": "Groq free tier - maximize usage for cost efficiency"
+      },
+      "orchestration": {
+        "totalMaxParallelAgents": 7,
+        "queueStrategy": "priority-based-with-provider-affinity",
+        "priorityOrder": ["CRITICAL", "HIGH", "MEDIUM"],
+        "z_ai_allocation": "Orchestrator (5 slots) > Architect (3 slots) > QA (10 slots) = 18 concurrent",
+        "groq_allocation": "Backend (3) > Frontend (3) > DevOps (3) > Docs (3) = 12 concurrent"
+      },
+      "tokenOptimization": {
+        "strategy": "Z.AI for reasoning, Groq for implementation",
+        "orchestrator_priority": "Always GLM-4.7 (reasoning bottleneck)",
+        "architect_logic": "Downgrade to GLM-4.5 to free 4.7 slots",
+        "qa_vision": "Use GLM-4.6V with new Vision capability",
+        "groq_volume": "Let Groq handle code generation (its strength)"
+      }
+    }
+  },
+  "optimizationNotes": {
+    "whatChanged": [
+      "Orchestrator now uses full 5x concurrency (was 2 on Lite)",
+      "Architect downgraded from GLM-4.7 to GLM-4.5 (frees slots, saves tokens)",
+      "QA-Specialist upgraded to GLM-4.6V with VisionAnalyze capability (Pro plan feature)",
+      "Added vision-based testing support",
+      "All Groq agents can now use full concurrency since it's free"
+    ],
+    "expectedSpeedup": {
+      "before_lite": "13+ minutes for complex analysis",
+      "after_pro": "4-5 minutes for same task",
+      "reasoning": "5x token allocation + 40-60% faster inference + no bottlenecks",
+      "speedupFactor": "2.5-3x faster end-to-end execution"
+    },
+    "costAnalysis": {
+      "monthly_cost": "$15 (Z.AI Pro) + $0 (Groq free) = $15/mo",
+      "previous_cost": "$3-9/mo (Lite plan)",
+      "additional_cost": "+$6-12/mo",
+      "valueAdd": "5x performance boost + vision capabilities + unlimited token usage"
+    },
+    "nextSteps": [
+      "1. Copy this entire config to C:\\atxintel-parent\\.opencode\\config.json",
+      "2. Restart OpenCode Desktop (critical!)",
+      "3. Run a test task - expect 2.5-3x speedup",
+      "4. Monitor Z.AI dashboard - you now have 45 concurrent slots total",
+      "5. If still slow, check Groq rate limits (less likely)"
+    ]
+  }
+}
