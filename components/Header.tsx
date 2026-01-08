@@ -4,20 +4,22 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
+import Logo from '@/components/Logo'
 import { useTheme } from '@/contexts/ThemeContext'
 
 const navItems = [
   { name: 'Home', href: '/' },
-  { name: 'Services', href: '#services', hasSubmenu: true },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Services', href: '/services', hasSubmenu: true },
+  { name: 'Our Vision', href: '/our-vision' },
+  { name: 'History', href: '/history' },
+  { name: 'Contact', href: '/#contact' },
 ]
 
 const serviceSubItems = [
-  { name: 'Residential Supports', href: '#services-residential' },
-  { name: 'Day Supports', href: '#services-day' },
-  { name: 'Targeted Case Management', href: '#services-tcm' },
+  { name: 'Services Overview', href: '/services' },
+  { name: 'Residential Services', href: '/services/residential' },
+  { name: 'Day Services', href: '/services/day-services' },
+  { name: 'Targeted Case Management', href: '/services/targeted-case-management' },
 ]
 
 export default function Header() {
@@ -26,6 +28,7 @@ export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const themeContext = useTheme()
   const theme = themeContext?.theme || 'light'
+  const mounted = themeContext?.mounted ?? true
   const toggleTheme = themeContext?.toggleTheme || (() => {})
 
   useEffect(() => {
@@ -35,6 +38,25 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  if (!mounted) {
+    return (
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 md:h-20">
+            <Logo variant="tier3" size="md" href="/" />
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <span key={item.name} className="text-gray-700 dark:text-gray-300 font-medium">
+                  {item.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </header>
+    )
+  }
 
   return (
     <motion.header
@@ -49,23 +71,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative w-10 h-10 md:w-12 md:h-12"
-            >
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/607f3625e431676659d422f5/20f6fffd-16e1-45bf-8730-175b47b87910/honeybee.png"
-                alt="HBCS Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </motion.div>
-            <span className="text-xl md:text-2xl font-bold text-primary-400 group-hover:text-primary-500 transition-colors">
-              HBCS, Inc.
-            </span>
-          </Link>
+          <Logo variant="tier3" size="md" href="/" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
