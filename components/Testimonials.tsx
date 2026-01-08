@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { StarIcon } from '@heroicons/react/24/solid'
+import HoneycombPattern from './HoneycombPattern'
+import { FadeIn } from '@/lib/animations'
 
 const QuoteIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -50,37 +52,32 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+    <section className="py-20 bg-gradient-to-br from-honey-50 to-wax-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Honeycomb Pattern Background */}
+      <HoneycombPattern size="md" opacity={0.05} color="#FFD700" animate={true} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <FadeIn className="text-center mb-16">
           <div className="inline-flex items-center justify-center gap-2 mb-6">
-            <QuoteIcon className="w-8 h-8 text-primary-400" />
+            <QuoteIcon className="w-8 h-8 text-bee-gold" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             What People Say
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Hear from the individuals and families who have experienced the HBCS difference
+            Hear from individuals and families who have experienced the HBCS difference
           </p>
-        </motion.div>
+        </FadeIn>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <FadeIn
               key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative border border-gray-100 dark:border-gray-700"
+              delayIndex={index}
+              className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative border-2 border-honey-200 dark:border-honey-800"
             >
               <div className="absolute -top-4 left-8">
-                <QuoteIcon className="w-8 h-8 text-primary-300" />
+                <QuoteIcon className="w-8 h-8 text-honey-300" />
               </div>
 
               <div className="flex items-center gap-1 mb-4">
@@ -94,8 +91,25 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center text-white font-bold text-lg">
-                  {testimonial.name.charAt(0)}
+                {/* Hexagonal Avatar */}
+                <div className="relative w-12 h-12">
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 50 58">
+                    <defs>
+                      <linearGradient id={`avatar-gradient-${testimonial.name}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FFD700" />
+                        <stop offset="100%" stopColor="#FFB300" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M25 0 L48 13.4 L48 39.6 L25 53 L2 39.6 L2 13.4 Z"
+                      fill={`url(#avatar-gradient-${testimonial.name})`}
+                      stroke="#FFD700"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                  <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">
+                    {testimonial.name.charAt(0)}
+                  </span>
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-white">
@@ -106,28 +120,23 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-white dark:bg-gray-800 rounded-3xl p-12 shadow-xl max-w-4xl mx-auto border border-gray-100 dark:border-gray-700">
+        <FadeIn className="mt-16 text-center">
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-12 shadow-xl max-w-4xl mx-auto border-2 border-honey-200 dark:border-honey-800">
             <p className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              Join the hundreds of individuals and families who trust HBCS
+              Join hundreds of individuals and families who trust HBCS
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-400 to-accent-400 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-honey-500 to-bee-amber text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Get in Touch
             </a>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   )

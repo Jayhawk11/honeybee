@@ -1,122 +1,160 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { HeartIcon, UsersIcon, LightBulbIcon, ChartBarIcon } from '@heroicons/react/24/outline'
-
-const values = [
-  {
-    icon: HeartIcon,
-    title: 'Compassion',
-    description: 'We approach every individual with empathy, dignity, and respect, ensuring they feel valued and heard.'
-  },
-  {
-    icon: UsersIcon,
-    title: 'Community',
-    description: 'We believe in the power of community and work to create inclusive environments where everyone belongs.'
-  },
-  {
-    icon: LightBulbIcon,
-    title: 'Innovation',
-    description: 'We continuously seek new and better ways to support individuals on their journey to independence.'
-  },
-  {
-    icon: ChartBarIcon,
-    title: 'Excellence',
-    description: 'We are committed to providing the highest quality services and consistently exceeding expectations.'
-  }
-]
+import Link from 'next/link'
+import { CheckCircleIcon } from '@heroicons/react/24/outline'
+import { Section } from '@/components/layout/Section'
+import { FadeIn, FadeInLeft, FadeInRight } from '@/lib/animations'
+import { aboutData } from '@/data/about'
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            About HBCS
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Founded in 2013, Honey Bee Community Services has been dedicated to empowering individuals with intellectual and developmental disabilities to live their best lives
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+    <Section
+      id="about"
+      title="About HBCS"
+      description="Founded in 2013, Honey Bee Community Services has been dedicated to empowering individuals with intellectual and developmental disabilities to live their best lives"
+      className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+      backgroundPattern={{ size: 'md', opacity: 0.06, animate: true }}
+    >
+      <div className="space-y-16 mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <FadeInLeft>
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Our Mission
+              {aboutData.mission.title}
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-              At Honey Bee Community Services, our mission is to provide exceptional, person-centered supports that empower adults with intellectual and developmental disabilities to achieve their highest level of independence and quality of life. We believe that every individual has unique gifts and deserves the opportunity to live, work, and thrive in their community.
+              {aboutData.mission.content}
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Our team of dedicated professionals works collaboratively with individuals, families, and community partners to create personalized support plans that honor each person&apos;s goals, preferences, and dreams. We are committed to fostering an environment of dignity, respect, and continuous improvement.
+              {aboutData.mission.additional}
             </p>
-          </motion.div>
+          </FadeInLeft>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-300 to-accent-400 rounded-3xl transform rotate-3 opacity-20 blur-xl" />
-            <div className="relative bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 rounded-3xl p-12 shadow-xl">
-              <div className="grid grid-cols-2 gap-8 text-center">
-                <div>
-                  <p className="text-5xl font-bold text-primary-400 mb-2">10+</p>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">Years Serving</p>
-                </div>
-                <div>
-                  <p className="text-5xl font-bold text-accent-400 mb-2">500+</p>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">Individuals Supported</p>
-                </div>
-                <div>
-                  <p className="text-5xl font-bold text-yellow-500 mb-2">50+</p>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">Team Members</p>
-                </div>
-                <div>
-                  <p className="text-5xl font-bold text-primary-400 mb-2">98%</p>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">Satisfaction Rate</p>
-                </div>
+          <FadeInRight className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-honey-300 to-bee-amber rounded-3xl transform rotate-3 opacity-20 blur-xl" />
+            <div className="relative bg-gradient-to-br from-honey-50 to-bee-cream dark:from-honey-900/20 dark:to-bee-amber/20 rounded-3xl p-12 shadow-xl border-2 border-honey-200 dark:border-honey-800">
+              {/* Hexagonal Stats Grid */}
+              <div className="grid grid-cols-2 gap-8">
+                {aboutData.stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="text-center relative group"
+                  >
+                    {/* Hexagonal background */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <svg width="100" height="115" viewBox="0 0 100 115" fill="none">
+                        <path d="M50 0 L95 25 L95 75 L50 100 L5 75 L5 25 Z" stroke="#FFD700" strokeWidth="2" />
+                      </svg>
+                    </div>
+                    <div className="relative">
+                      <p className={`text-5xl font-bold ${stat.color} mb-2`}>{stat.value}</p>
+                      <p className="text-gray-600 dark:text-gray-400 font-medium text-sm">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </motion.div>
+          </FadeInRight>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Our Values
-          </h3>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            These core values guide everything we do and reflect our commitment to those we serve
-          </p>
-        </motion.div>
+        <FadeIn>
+          <div className="bg-gradient-to-br from-honey-50 to-bee-cream dark:from-honey-900/20 dark:to-bee-cream/20 rounded-3xl p-10 border-2 border-honey-200 dark:border-honey-800 relative overflow-hidden">
+            {/* Decorative honeycomb */}
+            <div className="absolute -right-10 -bottom-10 opacity-5">
+              <svg width="200" height="230" viewBox="0 0 200 230" fill="none">
+                <path d="M100 0 L190 50 L190 150 L100 200 L10 150 L10 50 Z" stroke="#FFD700" strokeWidth="4" />
+                <path d="M100 40 L150 70 L150 130 L100 160 L50 130 L50 70 Z" stroke="#FFD700" strokeWidth="4" />
+              </svg>
+            </div>
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="md:w-1/3">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  {aboutData.story.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  {aboutData.story.summary}
+                </p>
+                <Link
+                  href="/history"
+                  className="inline-flex items-center gap-2 text-honey-600 dark:text-honey-400 font-semibold hover:text-honey-700 dark:hover:text-honey-300"
+                >
+                  Read Our Full History
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="md:w-2/3">
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                  {aboutData.story.fullStory}
+                </p>
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {aboutData.story.growth}
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {values.map((value, index) => (
-            <motion.div
+        <FadeIn>
+          <div className="bg-gradient-to-br from-wax-100 to-honey-50 dark:from-wax-900/20 dark:to-honey-900/20 rounded-3xl p-10 border-2 border-wax-200 dark:border-wax-800">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+              {aboutData.recognition.title}
+            </h3>
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-center">
+              {aboutData.recognition.description}
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                  CDDO Affiliations
+                </h4>
+                <ul className="space-y-2">
+                  {aboutData.recognition.cddoAffiliations.map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <CheckCircleIcon className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                  Community Involvement
+                </h4>
+                <ul className="space-y-2">
+                  {aboutData.recognition.communityInvolvement.map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <CheckCircleIcon className="w-5 h-5 text-accent-400 flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+
+      <FadeIn className="text-center mb-12">
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Our Values
+        </h3>
+        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          These core values guide everything we do and reflect our commitment to those we serve
+        </p>
+      </FadeIn>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {aboutData.values.map((value, index) => {
+          const Icon = value.icon
+          return (
+            <FadeIn
               key={value.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              delayIndex={index}
               className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
             >
-              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-r from-primary-400 to-primary-600 mb-6">
-                <value.icon className="w-8 h-8 text-white" />
+              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-r from-honey-400 to-honey-600 mb-6">
+                <Icon className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                 {value.title}
@@ -124,10 +162,10 @@ export default function About() {
               <p className="text-gray-600 dark:text-gray-400">
                 {value.description}
               </p>
-            </motion.div>
-          ))}
-        </div>
+            </FadeIn>
+          )
+        })}
       </div>
-    </section>
+    </Section>
   )
 }

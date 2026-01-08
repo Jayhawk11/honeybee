@@ -1,13 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import About from '@/components/About'
-import Testimonials from '@/components/Testimonials'
-import Locations from '@/components/Locations'
-import Contact from '@/components/Contact'
+
+// Lazy load heavy sections to reduce initial bundle size
+const Services = dynamic(() => import('@/components/Services'), {
+  loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+})
+const Gallery = dynamic(() => import('@/components/Gallery'), {
+  loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+})
+const About = dynamic(() => import('@/components/About'), {
+  loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+})
+const Testimonials = dynamic(() => import('@/components/Testimonials'), {
+  loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+})
+const Contact = dynamic(() => import('@/components/Contact'), {
+  loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+})
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
@@ -23,11 +36,21 @@ export default function Home() {
   return (
     <div className="w-full">
       <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <Locations />
-      <Contact />
+      <Suspense fallback={<div className="h-96 animate-pulse" />}>
+        <Services />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse" />}>
+        <Gallery />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse" />}>
+        <About />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse" />}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse" />}>
+        <Contact />
+      </Suspense>
     </div>
   )
 }

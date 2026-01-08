@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { MapPinIcon, ClockIcon, BuildingOffice2Icon } from '@heroicons/react/24/outline'
 import dynamic from 'next/dynamic'
 
-const Map = dynamic(() => import('@/components/Map'), { 
+const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => (
     <div className="h-96 bg-gray-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center">
@@ -17,41 +17,38 @@ const Map = dynamic(() => import('@/components/Map'), {
 const locations = [
   {
     id: 1,
-    name: 'Main Office',
-    address: '123 Main Street, Suite 100',
-    city: 'Raleigh, NC 27601',
-    phone: '(919) 555-0100',
-    email: 'info@hbcs-inc.org',
-    hours: 'Monday - Friday: 8:00 AM - 5:00 PM',
-    services: ['Administrative', 'Case Management', 'Intake'],
-    position: [35.7796, -78.6382]
+    name: 'Overland Park Day Services',
+    address: '7600 W. 75th Street',
+    additional: '(Inside the Overland Park Christian Church)',
+    city: 'Overland Park, Kansas',
+    hours: 'Monday - Friday: 9:00 AM - 2:00 PM',
+    services: ['Day Supports', 'Community Activities', 'Social Inclusion'],
+    position: [38.9784, -94.6739]
   },
   {
     id: 2,
-    name: 'Day Program Center',
-    address: '456 Community Lane',
-    city: 'Raleigh, NC 27603',
-    phone: '(919) 555-0200',
-    email: 'dayprogram@hbcs-inc.org',
-    hours: 'Monday - Friday: 8:30 AM - 4:30 PM',
-    services: ['Day Supports', 'Social Activities', 'Skills Training'],
-    position: [35.7803, -78.6401]
+    name: 'Olathe Day Services',
+    address: '413 E. Santa Fe Drive',
+    additional: '',
+    city: 'Olathe, Kansas',
+    hours: 'Monday - Friday: 9:00 AM - 2:00 PM',
+    services: ['Day Supports', 'Community Activities', 'Skills Training'],
+    position: [38.8814, -94.8191]
   },
   {
     id: 3,
-    name: 'Residential Services',
-    address: '789 Independence Way',
-    city: 'Raleigh, NC 27606',
-    phone: '(919) 555-0300',
-    email: 'residential@hbcs-inc.org',
-    hours: '24/7 Support Available',
-    services: ['Residential Supports', 'Community Living'],
-    position: [35.7785, -78.6410]
+    name: 'Service Coverage',
+    address: 'Johnson & Wyandotte Counties',
+    additional: 'Kansas City Metropolitan Area',
+    city: 'Kansas',
+    hours: 'Monday - Friday: 9:00 AM - 2:00 PM',
+    services: ['HCBS IDD Waiver Services', 'Residential Supports', 'Targeted Case Management'],
+    position: [38.9822, -94.6708]
   }
 ]
 
 export default function Locations() {
-  const [selectedLocation, setSelectedLocation] = useState(locations[0])
+  const [selectedLocation, setSelectedLocation] = useState(locations[2])
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900">
@@ -66,13 +63,13 @@ export default function Locations() {
             Our Locations
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Conveniently located throughout the Triangle region to serve you better
+            Conveniently located throughout the Kansas City metropolitan area to serve you better
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-4">
-            {locations.map((location, index) => (
+            {locations.slice(0, 2).map((location, index) => (
               <motion.div
                 key={location.id}
                 initial={{ opacity: 0, x: -30 }}
@@ -96,24 +93,14 @@ export default function Locations() {
                     }`} />
                     <div>
                       <p>{location.address}</p>
+                      {location.additional && (
+                        <p className="text-sm mt-1">{location.additional}</p>
+                      )}
                       <p>{location.city}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <PhoneIcon className={`w-5 h-5 ${
-                      selectedLocation.id === location.id ? 'text-white' : 'text-primary-400'
-                    }`} />
-                    <a
-                      href={`tel:${location.phone}`}
-                      className={`hover:underline ${
-                        selectedLocation.id === location.id ? 'text-white' : 'text-gray-700 dark:text-gray-300'
-                      }`}
-                    >
-                      {location.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <ClockIcon className={`w-5 h-5 ${
+                  <div className="flex items-start gap-3">
+                    <ClockIcon className={`w-5 h-5 mt-0.5 ${
                       selectedLocation.id === location.id ? 'text-white' : 'text-primary-400'
                     }`} />
                     <p>{location.hours}</p>
@@ -139,35 +126,16 @@ export default function Locations() {
                   <MapPinIcon className="w-5 h-5 text-primary-400 mt-0.5" />
                   <div className="text-gray-700 dark:text-gray-300">
                     <p>{selectedLocation.address}</p>
+                    {selectedLocation.additional && (
+                      <p className="text-sm mt-1">{selectedLocation.additional}</p>
+                    )}
                     <p>{selectedLocation.city}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <PhoneIcon className="w-5 h-5 text-primary-400" />
-                  <a
-                    href={`tel:${selectedLocation.phone}`}
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-400 transition-colors"
-                  >
-                    {selectedLocation.phone}
-                  </a>
-                </div>
-
-                  <div className="flex items-center gap-3">
-                    <EnvelopeIcon className="w-5 h-5 text-primary-400" />
-                    <a
-                      href={`mailto:${selectedLocation.email}`}
-                      className="text-gray-700 dark:text-gray-300 hover:text-primary-400 transition-colors"
-                    >
-                      {selectedLocation.email}
-                    </a>
-                  </div>
-
                 <div className="flex items-start gap-3">
                   <ClockIcon className="w-5 h-5 text-primary-400 mt-0.5" />
-                  <p className="text-gray-700 dark:text-gray-300">
-                    {selectedLocation.hours}
-                  </p>
+                  <p className="text-gray-700 dark:text-gray-300">{selectedLocation.hours}</p>
                 </div>
               </div>
 
@@ -202,7 +170,7 @@ export default function Locations() {
             Questions about our services or locations?
           </p>
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-400 to-accent-400 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             Contact Us
