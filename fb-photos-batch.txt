@@ -1,0 +1,34 @@
+# HBCS Facebook Photos - Batch Download File
+# Total: 23 photos
+
+# Instructions:
+1. Copy all URLs below
+2. Paste into a bulk URL opener or download manager
+3. Or open each URL in your logged-in Facebook browser
+
+
+
+=== PHOTO URLs ===
+1. https://www.facebook.com/photo.php?fbid=122204174174309264&set=pb.61559277947065.-2207520000&type=3
+2. https://www.facebook.com/photo.php?fbid=122204174126309264&set=pb.61559277947065.-2207520000&type=3
+3. https://www.facebook.com/photo.php?fbid=122204174072309264&set=pb.61559277947065.-2207520000&type=3
+4. https://www.facebook.com/photo.php?fbid=122204174036309264&set=pb.61559277947065.-2207520000&type=3
+5. https://www.facebook.com/photo.php?fbid=122204173994309264&set=pb.61559277947065.-2207520000&type=3
+6. https://www.facebook.com/photo.php?fbid=122204173940309264&set=pb.61559277947065.-2207520000&type=3
+7. https://www.facebook.com/photo.php?fbid=122204173874309264&set=pb.61559277947065.-2207520000&type=3
+8. https://www.facebook.com/photo.php?fbid=122204173838309264&set=pb.61559277947065.-2207520000&type=3
+9. https://www.facebook.com/photo.php?fbid=122204173724309264&set=pb.61559277947065.-2207520000&type=3
+10. https://www.facebook.com/photo.php?fbid=122204173694309264&set=pb.61559277947065.-2207520000&type=3
+11. https://www.facebook.com/photo.php?fbid=122204173604309264&set=pb.61559277947065.-2207520000&type=3
+12. https://www.facebook.com/photo.php?fbid=122204173514309264&set=pb.61559277947065.-2207520000&type=3
+13. https://www.facebook.com/photo.php?fbid=122204173394309264&set=pb.61559277947065.-2207520000&type=3
+14. https://www.facebook.com/photo.php?fbid=122203452326309264&set=pb.61559277947065.-2207520000&type=3
+15. https://www.facebook.com/photo.php?fbid=122203447178309264&set=pb.61559277947065.-2207520000&type=3
+16. https://www.facebook.com/photo.php?fbid=122203447088309264&set=pb.61559277947065.-2207520000&type=3
+17. https://www.facebook.com/photo.php?fbid=122203447046309264&set=pb.61559277947065.-2207520000&type=3
+18. https://www.facebook.com/photo.php?fbid=122203446992309264&set=pb.61559277947065.-2207520000&type=3
+19. https://www.facebook.com/photo.php?fbid=122203446926309264&set=pb.61559277947065.-2207520000&type=3
+20. https://www.facebook.com/photo.php?fbid=122203446890309264&set=pb.61559277947065.-2207520000&type=3
+21. https://www.facebook.com/photo.php?fbid=122203446836309264&set=pb.61559277947065.-2207520000&type=3
+22. https://www.facebook.com/photo.php?fbid=122203446578309264&set=pb.61559277947065.-2207520000&type=3
+23. https://www.facebook.com/photo.php?fbid=122203446524309264&set=pb.61559277947065.-2207520000&type=3

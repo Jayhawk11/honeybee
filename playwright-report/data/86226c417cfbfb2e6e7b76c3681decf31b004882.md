@@ -1,0 +1,215 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Honey Bee Community Services - Go to homepage" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]:
+            - generic:
+              - generic:
+                - img
+            - generic [ref=e20]:
+              - generic [ref=e21]: Honeybee
+              - generic [ref=e22]: Community
+              - generic [ref=e23]: Services
+        - generic [ref=e24]:
+          - button "Switch to dark mode" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+          - button "Open mobile menu" [ref=e28] [cursor=pointer]:
+            - img [ref=e29]
+    - main [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - link "Back to Home" [ref=e37] [cursor=pointer]:
+              - /url: /
+              - img [ref=e38]
+              - text: Back to Home
+            - heading "Supporting Adults With Intellectual and Developmental Disabilities" [level=1] [ref=e40]
+            - paragraph [ref=e41]: “Diversity and inclusion are about giving value to every human being, no matter our differences”
+          - img "HBCS Team" [ref=e43]
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - heading "Our Vision" [level=2] [ref=e47]
+            - generic [ref=e48]:
+              - paragraph [ref=e49]: Our vision is to assist individuals with being successfully independent in their own home. We serve individuals who don't fit into the traditional 24/7 setting but need daily supports.
+              - paragraph [ref=e50]: We believe in a collaborative approach by working with the individual, family members, case manager, and other important team members to develop a support schedule that will give them independence, health, and joy.
+          - generic [ref=e51]:
+            - heading "Who We Serve" [level=2] [ref=e52]
+            - paragraph [ref=e54]: Individuals who don't fit into the traditional 24/7 setting but need daily supports
+          - generic [ref=e55]:
+            - heading "Our Expertise Areas" [level=2] [ref=e56]
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - img [ref=e60]
+                - heading "Physical Health Support" [level=3] [ref=e62]
+                - paragraph [ref=e63]: Our population commonly struggles with physical health conditions. We have strong knowledge in these areas and support clients with cooking healthy meals and physical exercise to improve these conditions.
+                - generic [ref=e64]:
+                  - generic [ref=e65]:
+                    - img [ref=e66]
+                    - generic [ref=e68]:
+                      - paragraph [ref=e69]: Obesity
+                      - paragraph [ref=e70]: Healthy meal planning and portion control
+                  - generic [ref=e71]:
+                    - img [ref=e72]
+                    - generic [ref=e74]:
+                      - paragraph [ref=e75]: High Cholesterol
+                      - paragraph [ref=e76]: Low-fat cooking and nutritional guidance
+                  - generic [ref=e77]:
+                    - img [ref=e78]
+                    - generic [ref=e80]:
+                      - paragraph [ref=e81]: Diabetes
+                      - paragraph [ref=e82]: Diabetic-friendly meals and glucose monitoring
+                  - generic [ref=e83]:
+                    - img [ref=e84]
+                    - generic [ref=e86]:
+                      - paragraph [ref=e87]: High Blood Pressure
+                      - paragraph [ref=e88]: Low-sodium diet and stress management
+              - generic [ref=e89]:
+                - img [ref=e91]
+                - heading "Mental Health Support" [level=3] [ref=e93]
+                - paragraph [ref=e94]: We are experienced with supporting various mental health conditions. We work closely with therapists, psychiatrists, social workers, and pharmacists to ensure clients get the support they need and access needed medication.
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - img [ref=e97]
+                    - generic [ref=e99]:
+                      - paragraph [ref=e100]: Anxiety
+                      - paragraph [ref=e101]: Collaborative care with mental health professionals
+                  - generic [ref=e102]:
+                    - img [ref=e103]
+                    - generic [ref=e105]:
+                      - paragraph [ref=e106]: Depression
+                      - paragraph [ref=e107]: Collaborative care with mental health professionals
+                  - generic [ref=e108]:
+                    - img [ref=e109]
+                    - generic [ref=e111]:
+                      - paragraph [ref=e112]: Bipolar Disorder
+                      - paragraph [ref=e113]: Collaborative care with mental health professionals
+                  - generic [ref=e114]:
+                    - img [ref=e115]
+                    - generic [ref=e117]:
+                      - paragraph [ref=e118]: OCD
+                      - paragraph [ref=e119]: Collaborative care with mental health professionals
+                  - generic [ref=e120]:
+                    - img [ref=e121]
+                    - generic [ref=e123]:
+                      - paragraph [ref=e124]: Tourette's Syndrome
+                      - paragraph [ref=e125]: Collaborative care with mental health professionals
+          - generic [ref=e126]:
+            - img "HBCS Team Members" [ref=e128]
+            - generic [ref=e129]:
+              - heading "Collaborative Team Approach" [level=2] [ref=e130]
+              - paragraph [ref=e131]: We believe in the power of collaboration. Our team approach ensures that each individual receives comprehensive, personalized support from multiple perspectives.
+              - generic [ref=e132]:
+                - generic [ref=e133]:
+                  - img [ref=e135]
+                  - heading "Individual" [level=4] [ref=e137]
+                  - paragraph [ref=e138]: Supporting personal independence and autonomy
+                - generic [ref=e139]:
+                  - img [ref=e141]
+                  - heading "Family" [level=4] [ref=e143]
+                  - paragraph [ref=e144]: Collaborating with family members for comprehensive care
+                - generic [ref=e145]:
+                  - img [ref=e147]
+                  - heading "Case Manager" [level=4] [ref=e149]
+                  - paragraph [ref=e150]: Coordinating care plans and services
+                - generic [ref=e151]:
+                  - img [ref=e153]
+                  - heading "Team Members" [level=4] [ref=e155]
+                  - paragraph [ref=e156]: Working with therapists, doctors, and specialists
+        - generic [ref=e159]:
+          - heading "Learn More About Our Services" [level=2] [ref=e160]
+          - paragraph [ref=e161]: Discover how we can support you or your loved one
+          - link "Explore Our Services" [ref=e162] [cursor=pointer]:
+            - /url: /services
+            - text: Explore Our Services
+            - img [ref=e163]
+    - contentinfo [ref=e165]:
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - link "Honey Bee Community Services - Go to homepage" [ref=e169] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e170]:
+                - img [ref=e175]
+                - generic [ref=e195]:
+                  - generic [ref=e196]: Honeybee
+                  - generic [ref=e197]: Community
+                  - generic [ref=e198]: Services
+            - paragraph [ref=e199]: Honey Bee Community Services, Inc. assists individuals with developmental disabilities to live independently in the community through Residential, Day Supports, and Targeted Case Management. Serving Johnson and Wyandotte Counties in Kansas as an HCBS IDD Waiver provider since 2013.
+            - link [ref=e202] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61559277947065
+              - img [ref=e206]
+            - generic [ref=e208]:
+              - paragraph [ref=e209]: Founded in 2013
+              - paragraph [ref=e211]: Serving Kansas City metropolitan area
+              - paragraph [ref=e213]: HCBS IDD Waiver Provider for Kansas
+            - generic [ref=e215]:
+              - paragraph [ref=e216]: "Mailing Address:"
+              - paragraph [ref=e217]: PO Box 23532, Overland Park, KS 66283
+          - generic [ref=e219]:
+            - heading "Quick Links" [level=3] [ref=e220]
+            - list [ref=e221]:
+              - listitem [ref=e222]:
+                - link "Home" [ref=e223] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e224]:
+                - link "Services" [ref=e225] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e226]:
+                - link "Our Vision" [active] [ref=e227] [cursor=pointer]:
+                  - /url: /our-vision
+              - listitem [ref=e228]:
+                - link "History" [ref=e229] [cursor=pointer]:
+                  - /url: /history
+              - listitem [ref=e230]:
+                - link "Contact" [ref=e231] [cursor=pointer]:
+                  - /url: /#contact
+          - generic [ref=e232]:
+            - heading "Services" [level=3] [ref=e233]
+            - list [ref=e234]:
+              - listitem [ref=e235]:
+                - link "Residential Supports" [ref=e236] [cursor=pointer]:
+                  - /url: /services/residential
+              - listitem [ref=e237]:
+                - link "Day Supports" [ref=e238] [cursor=pointer]:
+                  - /url: /services/day-services
+              - listitem [ref=e239]:
+                - link "Case Management" [ref=e240] [cursor=pointer]:
+                  - /url: /services/targeted-case-management
+          - generic [ref=e241]:
+            - heading "CDDO Affiliations" [level=3] [ref=e242]
+            - list [ref=e243]:
+              - listitem [ref=e244]:
+                - link "Johnson County CDDO" [ref=e245] [cursor=pointer]:
+                  - /url: https://www.jocogov.org/department/community-developmental-disabilities-organization
+              - listitem [ref=e246]:
+                - link "Wyandotte County CDDO" [ref=e247] [cursor=pointer]:
+                  - /url: https://www.wycokck.org/Departments/Human-Services/Community-Developmental-Disabilities-Organization
+              - listitem [ref=e248]:
+                - link "Kansas HCBS IDD Waiver" [ref=e249] [cursor=pointer]:
+                  - /url: https://kdads.ks.gov/disability-services/hcbs
+          - generic [ref=e250]:
+            - heading "Kansas Resources" [level=3] [ref=e251]
+            - list [ref=e252]:
+              - listitem [ref=e253]:
+                - link "KDADS" [ref=e254] [cursor=pointer]:
+                  - /url: https://kdads.ks.gov
+        - generic [ref=e255]:
+          - paragraph [ref=e256]: © 2026 Honey Bee Community Services, Inc. All rights reserved.
+          - generic [ref=e257]:
+            - link "Accessibility" [ref=e258] [cursor=pointer]:
+              - /url: "#"
+            - link "Privacy" [ref=e259] [cursor=pointer]:
+              - /url: "#"
+            - link "Terms" [ref=e260] [cursor=pointer]:
+              - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e266] [cursor=pointer]:
+    - img [ref=e267]
+  - alert [ref=e270]
+```

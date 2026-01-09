@@ -31,10 +31,10 @@ export function Section({
     <section id={id} className={`py-20 relative overflow-hidden ${className}`}>
       {backgroundPattern && (
         <HoneycombPattern
-          size={backgroundPattern.size}
+          stringSize={backgroundPattern.size}
           opacity={backgroundPattern.opacity}
           color="#FFD700"
-          animate={backgroundPattern.animate}
+          animated={backgroundPattern.animate}
         />
       )}
 

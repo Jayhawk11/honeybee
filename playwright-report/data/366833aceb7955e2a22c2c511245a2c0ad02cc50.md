@@ -1,0 +1,205 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Honey Bee Community Services - Go to homepage" [ref=e7]:
+          - /url: /
+          - generic [ref=e8]:
+            - generic:
+              - generic:
+                - img
+            - generic [ref=e17]:
+              - generic [ref=e18]: Honeybee
+              - generic [ref=e19]: Community
+              - generic [ref=e20]: Services
+        - navigation "Main navigation" [ref=e21]:
+          - link "Home" [ref=e23]:
+            - /url: /
+          - button "Services" [ref=e25] [cursor=pointer]:
+            - generic [ref=e26]: Services
+            - img [ref=e27]
+          - link "Our Vision" [ref=e30]:
+            - /url: /our-vision
+          - link "History" [ref=e32]:
+            - /url: /history
+          - link "Contact" [ref=e34]:
+            - /url: /#contact
+        - button "Switch to dark mode" [ref=e36] [cursor=pointer]:
+          - img [ref=e37]
+    - main [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - link "Navigate back to home page" [ref=e45]:
+              - /url: /
+              - img [ref=e46]
+              - text: Back to Home
+            - generic [ref=e48]:
+              - img "Honey Bee Branding" [ref=e49]
+              - generic [ref=e50]:
+                - heading "Our History" [level=1] [ref=e51]
+                - paragraph [ref=e52]: From Vision to Impact
+            - paragraph [ref=e53]: A journey of dedication, growth, and commitment to empowering individuals with intellectual and developmental disabilities
+          - img "HBCS Community Event" [ref=e55]
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - heading "Our Founder" [level=2] [ref=e59]
+            - paragraph [ref=e60]: The person behind the vision
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - img "HBCS Leadership Team" [ref=e63]
+              - generic [ref=e64]:
+                - paragraph [ref=e65]: Brett Bosley
+                - paragraph [ref=e66]: Founder & CEO
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - heading "Personal Connection" [level=3] [ref=e69]
+                - paragraph [ref=e70]: Brett grew up with a sibling who had developmental disabilities. This personal connection gave him a unique perspective on the challenges and triumphs that individuals with intellectual and developmental disabilities experience. He understood that true support wasn't about providing care—it was about empowering individuals to live their best lives with dignity, respect, and independence.
+              - generic [ref=e71]:
+                - heading "Identifying the Gap" [level=3] [ref=e72]
+                - paragraph [ref=e73]: While serving as a Targeted Case Manager, Brett saw a critical gap in services. He met numerous individuals with Intellectual and Developmental Disabilities who needed daily supports but craved independence they couldn't find in traditional 24/7 group home settings. They wanted more—they wanted to live in their own homes, make their own choices, and be part of their communities on their own terms.
+              - generic [ref=e74]:
+                - heading "A New Approach" [level=3] [ref=e75]
+                - paragraph [ref=e76]: "Driven by this vision, Brett made the bold decision to focus HBCS's entire operation on developing high-quality supports using an independent living model. He built an organization centered on collaboration, person-centered care, and the belief that everyone deserves the opportunity to thrive. Today, HBCS serves hundreds of individuals across Johnson and Wyandotte Counties, honoring Brett's original mission: to provide exceptional support that empowers independence, health, and joy."
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - heading "Our Journey" [level=2] [ref=e80]
+            - paragraph [ref=e81]: Milestones that shaped our organization
+          - generic [ref=e84]:
+            - generic [ref=e87]:
+              - img [ref=e89]
+              - heading "2013" [level=3] [ref=e91]
+              - heading "A Vision is Born" [level=4] [ref=e92]
+              - paragraph [ref=e93]: Brett Bosley founded Honey Bee Community Services, Inc. with a mission to provide unique residential supports for individuals who wanted independence beyond traditional 24/7 group homes.
+            - generic [ref=e98]:
+              - img [ref=e100]
+              - heading "2013-2021" [level=3] [ref=e102]
+              - heading "Growing Community Impact" [level=4] [ref=e103]
+              - paragraph [ref=e104]: HBCS established itself as a trusted provider of residential supports, helping individuals with intellectual and developmental disabilities achieve independence while receiving the daily support they needed.
+            - generic [ref=e109]:
+              - img [ref=e111]
+              - heading "2022" [level=3] [ref=e114]
+              - heading "Expanding Services" [level=4] [ref=e115]
+              - paragraph [ref=e116]: HBCS expanded its operations to begin providing Day Service supports in Overland Park, Kansas, bringing community inclusion opportunities to even more individuals.
+            - generic [ref=e121]:
+              - img [ref=e123]
+              - heading "2024" [level=3] [ref=e125]
+              - heading "Olathe Opens" [level=4] [ref=e126]
+              - paragraph [ref=e127]: Day Services expanded to include a second location in downtown Olathe, Kansas, doubling community capacity and reach across the Kansas City metropolitan area.
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - heading "Our Impact" [level=2] [ref=e133]
+            - paragraph [ref=e134]: Building a legacy of support and independence
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - paragraph [ref=e137]: "2013"
+              - paragraph [ref=e138]: Founded
+            - generic [ref=e139]:
+              - paragraph [ref=e140]: 10+
+              - paragraph [ref=e141]: Service Years
+            - generic [ref=e142]:
+              - paragraph [ref=e143]: "3"
+              - paragraph [ref=e144]: Locations
+            - generic [ref=e145]:
+              - paragraph [ref=e146]: 2 Counties
+              - paragraph [ref=e147]: Service Area
+        - generic [ref=e150]:
+          - heading "Join Our Story" [level=2] [ref=e151]
+          - paragraph [ref=e152]: Whether you're seeking services for yourself or a loved one, or interested in joining our team, we'd love to connect with you.
+          - generic [ref=e153]:
+            - link "Learn more about our services" [ref=e154]:
+              - /url: /services
+              - text: Our Services
+              - img [ref=e155]
+            - link "Go to contact section to get in touch" [ref=e157]:
+              - /url: /#contact
+              - text: Contact Us
+    - contentinfo [ref=e158]:
+      - generic [ref=e159]:
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - link "Honey Bee Community Services - Go to homepage" [ref=e162]:
+              - /url: /
+              - generic [ref=e163]:
+                - img [ref=e168] [cursor=pointer]
+                - generic [ref=e188]:
+                  - generic [ref=e189]: Honeybee
+                  - generic [ref=e190]: Community
+                  - generic [ref=e191]: Services
+            - paragraph [ref=e192]: Honey Bee Community Services, Inc. assists individuals with developmental disabilities to live independently in the community through Residential, Day Supports, and Targeted Case Management. Serving Johnson and Wyandotte Counties in Kansas as an HCBS IDD Waiver provider since 2013.
+            - link [ref=e195]:
+              - /url: https://www.facebook.com/profile.php?id=61559277947065
+              - img [ref=e199]
+            - generic [ref=e201]:
+              - paragraph [ref=e202]: Founded in 2013
+              - paragraph [ref=e204]: Serving Kansas City metropolitan area
+              - paragraph [ref=e206]: HCBS IDD Waiver Provider for Kansas
+            - generic [ref=e208]:
+              - paragraph [ref=e209]: "Mailing Address:"
+              - paragraph [ref=e210]: PO Box 23532, Overland Park, KS 66283
+          - generic [ref=e212]:
+            - heading "Quick Links" [level=3] [ref=e213]
+            - list [ref=e214]:
+              - listitem [ref=e215]:
+                - link "Home" [ref=e216]:
+                  - /url: /
+              - listitem [ref=e217]:
+                - link "Services" [ref=e218]:
+                  - /url: /services
+              - listitem [ref=e219]:
+                - link "Our Vision" [ref=e220]:
+                  - /url: /our-vision
+              - listitem [ref=e221]:
+                - link "History" [ref=e222]:
+                  - /url: /history
+              - listitem [ref=e223]:
+                - link "Contact" [ref=e224]:
+                  - /url: /#contact
+          - generic [ref=e225]:
+            - heading "Services" [level=3] [ref=e226]
+            - list [ref=e227]:
+              - listitem [ref=e228]:
+                - link "Residential Supports" [ref=e229]:
+                  - /url: /services/residential
+              - listitem [ref=e230]:
+                - link "Day Supports" [ref=e231]:
+                  - /url: /services/day-services
+              - listitem [ref=e232]:
+                - link "Case Management" [ref=e233]:
+                  - /url: /services/targeted-case-management
+          - generic [ref=e234]:
+            - heading "CDDO Affiliations" [level=3] [ref=e235]
+            - list [ref=e236]:
+              - listitem [ref=e237]:
+                - link "Johnson County CDDO" [ref=e238]:
+                  - /url: https://www.jocogov.org/department/community-developmental-disabilities-organization
+              - listitem [ref=e239]:
+                - link "Wyandotte County CDDO" [ref=e240]:
+                  - /url: https://www.wycokck.org/Departments/Human-Services/Community-Developmental-Disabilities-Organization
+              - listitem [ref=e241]:
+                - link "Kansas HCBS IDD Waiver" [ref=e242]:
+                  - /url: https://kdads.ks.gov/disability-services/hcbs
+          - generic [ref=e243]:
+            - heading "Kansas Resources" [level=3] [ref=e244]
+            - list [ref=e245]:
+              - listitem [ref=e246]:
+                - link "KDADS" [ref=e247]:
+                  - /url: https://kdads.ks.gov
+        - generic [ref=e248]:
+          - paragraph [ref=e249]: © 2026 Honey Bee Community Services, Inc. All rights reserved.
+          - generic [ref=e250]:
+            - link "Accessibility" [ref=e251]:
+              - /url: "#"
+            - link "Privacy" [ref=e252]:
+              - /url: "#"
+            - link "Terms" [ref=e253]:
+              - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e259] [cursor=pointer]:
+    - img [ref=e260]
+  - alert [ref=e265]
+```

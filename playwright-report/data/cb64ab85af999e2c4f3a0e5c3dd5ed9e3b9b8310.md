@@ -1,0 +1,686 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Honey Bee Community Services - Go to homepage" [ref=e7]:
+          - /url: /
+          - generic [ref=e8]:
+            - generic:
+              - generic:
+                - img
+            - generic [ref=e20]:
+              - generic [ref=e21]: Honeybee
+              - generic [ref=e22]: Community
+              - generic [ref=e23]: Services
+        - navigation "Main navigation" [ref=e24]:
+          - link "Home" [ref=e26]:
+            - /url: /
+          - button "Services" [ref=e28] [cursor=pointer]:
+            - generic [ref=e29]: Services
+            - img [ref=e30]
+          - link "Our Vision" [ref=e33]:
+            - /url: /our-vision
+          - link "History" [ref=e35]:
+            - /url: /history
+          - link "Contact" [ref=e37]:
+            - /url: /#contact
+        - button "Switch to dark mode" [ref=e39] [cursor=pointer]:
+          - img [ref=e40]
+    - main [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic:
+            - img
+          - img [ref=e51]
+          - img [ref=e66]
+          - img [ref=e81]
+          - img [ref=e95]
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - generic [ref=e113]:
+                  - img [ref=e114]
+                  - generic [ref=e116]: Founded in 2013
+                - generic [ref=e117]:
+                  - generic [ref=e119]: 🐝
+                  - generic [ref=e120]: 10+ Years of Service
+              - heading "Supporting Adults With Intellectual and Developmental Disabilities" [level=1] [ref=e121]
+              - blockquote [ref=e122]:
+                - img [ref=e123]
+                - paragraph [ref=e125]: “Diversity and inclusion are about giving value to every human being, no matter our differences”
+              - paragraph [ref=e126]: Honey Bee Community Services, Inc. assists individuals with developmental disabilities to live independently in community through Residential, Day Supports, and Targeted Case Management.
+              - generic [ref=e127]:
+                - button "Scroll to services section to learn more about our services" [ref=e128] [cursor=pointer]:
+                  - generic [ref=e129]:
+                    - text: Learn More
+                    - img [ref=e130]
+                - link "Go to contact form to get in touch with us" [ref=e133]:
+                  - /url: "#contact"
+                  - text: Contact Us
+            - generic [ref=e137]:
+              - img "KC Police Station" [ref=e139]
+              - button "Previous photo" [ref=e140] [cursor=pointer]:
+                - img [ref=e141]
+              - button "Next photo" [ref=e143] [cursor=pointer]:
+                - img [ref=e144]
+              - status [ref=e146]: Photo slideshow playing
+              - generic [ref=e147]:
+                - heading "KC Police Station" [level=3] [ref=e148]
+                - paragraph [ref=e149]: Community outreach event at Kansas City Kansas Police Station
+              - group "Photo navigation" [ref=e150]:
+                - 'button "Show photo 1 of 3: KC Police Station" [ref=e151] [cursor=pointer]'
+                - 'button "Show photo 2 of 3: Union Station" [ref=e152] [cursor=pointer]'
+                - 'button "Show photo 3 of 3: Renaissance Festival" [ref=e153] [cursor=pointer]'
+        - generic [ref=e157]:
+          - generic:
+            - img
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - heading "Our Services" [level=2] [ref=e160]
+              - paragraph [ref=e161]: Comprehensive support services tailored to help individuals with intellectual and developmental disabilities live fulfilling, independent lives
+            - generic [ref=e162]:
+              - generic [ref=e164]:
+                - generic [ref=e167]:
+                  - img [ref=e169]
+                  - img [ref=e173]
+                  - heading "Residential Supports" [level=3] [ref=e175]
+                  - paragraph [ref=e176]: Our residential program provides individuals with intellectual and developmental disabilities opportunity to live in their own homes or apartments in community. We offer 24/7 support tailored to each person's unique needs, helping them develop life skills, maintain their health, and achieve their personal goals.
+                  - list [ref=e177]:
+                    - listitem [ref=e178]:
+                      - img [ref=e179]
+                      - generic [ref=e181]: 24/7 personalized support
+                    - listitem [ref=e182]:
+                      - img [ref=e183]
+                      - generic [ref=e185]: Skill development and training
+                    - listitem [ref=e186]:
+                      - img [ref=e187]
+                      - generic [ref=e189]: Community integration activities
+                    - listitem [ref=e190]:
+                      - img [ref=e191]
+                      - generic [ref=e193]: Health and medication management
+                    - listitem [ref=e194]:
+                      - img [ref=e195]
+                      - generic [ref=e197]: Family collaboration and support
+                - img "Residential Supports" [ref=e201]
+              - generic [ref=e203]:
+                - generic [ref=e206]:
+                  - img [ref=e208]
+                  - img [ref=e212]
+                  - heading "Day Supports" [level=3] [ref=e214]
+                  - paragraph [ref=e215]: Our Day Supports program offers a variety of activities designed to enhance quality of life, build social connections, and develop new skills in a fun, supportive environment. Participants engage in community outings, creative activities, physical exercise, and educational opportunities.
+                  - list [ref=e216]:
+                    - listitem [ref=e217]:
+                      - img [ref=e218]
+                      - generic [ref=e220]: Community integration outings
+                    - listitem [ref=e221]:
+                      - img [ref=e222]
+                      - generic [ref=e224]: Art and music therapy
+                    - listitem [ref=e225]:
+                      - img [ref=e226]
+                      - generic [ref=e228]: Physical fitness programs
+                    - listitem [ref=e229]:
+                      - img [ref=e230]
+                      - generic [ref=e232]: Life skills workshops
+                    - listitem [ref=e233]:
+                      - img [ref=e234]
+                      - generic [ref=e236]: Social and recreational activities
+                - img "Day Supports" [ref=e240]
+              - generic [ref=e242]:
+                - generic [ref=e245]:
+                  - img [ref=e247]
+                  - img [ref=e251]
+                  - heading "Targeted Case Management" [level=3] [ref=e253]
+                  - paragraph [ref=e254]: Our Targeted Case Management services help individuals navigate complex system of available supports and services. Our experienced case managers work closely with individuals and their families to coordinate care, advocate for needs, and ensure access to appropriate community resources.
+                  - list [ref=e255]:
+                    - listitem [ref=e256]:
+                      - img [ref=e257]
+                      - generic [ref=e259]: Service coordination and planning
+                    - listitem [ref=e260]:
+                      - img [ref=e261]
+                      - generic [ref=e263]: Advocacy and resource navigation
+                    - listitem [ref=e264]:
+                      - img [ref=e265]
+                      - generic [ref=e267]: Monitoring and support
+                    - listitem [ref=e268]:
+                      - img [ref=e269]
+                      - generic [ref=e271]: Crisis intervention assistance
+                    - listitem [ref=e272]:
+                      - img [ref=e273]
+                      - generic [ref=e275]: Connection to community resources
+                - img "Targeted Case Management" [ref=e279]
+            - link "Get Started Today" [ref=e281]:
+              - /url: "#contact"
+        - generic [ref=e283]:
+          - generic [ref=e284]:
+            - img [ref=e286]
+            - heading "Life at HBCS" [level=2] [ref=e288]
+            - paragraph [ref=e289]: Explore moments of joy, growth, and community in our gallery
+          - status [ref=e290]: Showing 8 images in all categories
+          - generic [ref=e291]:
+            - button "Filter by all categories" [pressed] [ref=e292] [cursor=pointer]: All
+            - button "Filter by Events" [ref=e293] [cursor=pointer]: Events
+            - button "Filter by Activities" [ref=e294] [cursor=pointer]: Activities
+            - button "Filter by Community" [ref=e295] [cursor=pointer]: Community
+            - button "Filter by Day Services" [ref=e296] [cursor=pointer]: Day Services
+            - button "Filter by Residential" [ref=e297] [cursor=pointer]: Residential
+            - button "Filter by Outdoors" [ref=e298] [cursor=pointer]: Outdoors
+          - generic [ref=e299]:
+            - generic [ref=e301] [cursor=pointer]:
+              - img "Group of people with intellectual and developmental disabilities dancing together at a themed community dance event, wearing colorful coordinated outfits and smiling with joy" [ref=e302]
+              - generic [ref=e304]:
+                - paragraph [ref=e305]: Themed dances and community events
+                - text: Events
+            - generic [ref=e307] [cursor=pointer]:
+              - img "Group of individuals from HBCS visiting the historic Mahaffie Farmstead for an educational field trip, exploring the heritage farm grounds together" [ref=e308]
+              - generic [ref=e310]:
+                - paragraph [ref=e311]: Historical site visits and educational trips
+                - text: Activities
+            - generic [ref=e313] [cursor=pointer]:
+              - img "HBCS community members enjoying a group outing in the local community, practicing inclusion and social skills while having fun together" [ref=e314]
+              - generic [ref=e316]:
+                - paragraph [ref=e317]: Community inclusion activities
+                - text: Community
+            - generic [ref=e319] [cursor=pointer]:
+              - img "Adults with developmental disabilities participating in engaging day services activities, including arts and crafts, skill-building exercises, and social interaction" [ref=e320]
+              - generic [ref=e322]:
+                - paragraph [ref=e323]: Daily activities and skill building
+                - text: Day Services
+            - generic [ref=e325] [cursor=pointer]:
+              - img "HBCS residential program participants actively enjoying outdoor field day activities including games, sports, and team-building exercises" [ref=e326]
+              - generic [ref=e328]:
+                - paragraph [ref=e329]: Field day and community sports
+                - text: Residential
+            - generic [ref=e331] [cursor=pointer]:
+              - img "Large group photograph of HBCS members and staff during a fun group outing to Mahaffie Farmstead, showing community connection and joy" [ref=e332]
+              - generic [ref=e334]:
+                - paragraph [ref=e335]: Group outings to local attractions
+                - text: Activities
+            - generic [ref=e337] [cursor=pointer]:
+              - img "HBCS community members exploring nature trails and outdoor activities at Ernie Miller Nature Center, enjoying the outdoors and learning about wildlife" [ref=e338]
+              - generic [ref=e340]:
+                - paragraph [ref=e341]: Nature and outdoor activities
+                - text: Outdoors
+            - generic [ref=e343] [cursor=pointer]:
+              - img "Warm and joyful family night event bringing together individuals, their families, and HBCS staff for community building and celebration" [ref=e344]
+              - generic [ref=e346]:
+                - paragraph [ref=e347]: Family and community events
+                - text: Community
+        - generic [ref=e348]:
+          - generic:
+            - img
+          - generic [ref=e349]:
+            - generic [ref=e350]:
+              - heading "About HBCS" [level=2] [ref=e351]
+              - paragraph [ref=e352]: Founded in 2013, Honey Bee Community Services has been dedicated to empowering individuals with intellectual and developmental disabilities to live their best lives
+            - generic [ref=e353]:
+              - generic [ref=e354]:
+                - generic [ref=e355]:
+                  - heading "Our Mission" [level=3] [ref=e356]
+                  - paragraph [ref=e357]: At Honey Bee Community Services, our mission is to provide exceptional, person-centered supports that empower adults with intellectual and developmental disabilities to achieve their highest level of independence and quality of life. We believe that every individual has unique gifts and deserves the opportunity to live, work, and thrive in their community.
+                  - paragraph [ref=e358]: Our team of dedicated professionals works collaboratively with individuals, families, and community partners to create personalized support plans that honor each person&apos;s goals, preferences, and dreams. We are committed to fostering an environment of dignity, respect, and continuous improvement.
+                - generic [ref=e362]:
+                  - generic [ref=e363]:
+                    - img [ref=e365]
+                    - generic [ref=e367]:
+                      - paragraph [ref=e368]: 10+
+                      - paragraph [ref=e369]: Years Serving
+                  - generic [ref=e370]:
+                    - img [ref=e372]
+                    - generic [ref=e374]:
+                      - paragraph [ref=e375]: 500+
+                      - paragraph [ref=e376]: Individuals Supported
+                  - generic [ref=e377]:
+                    - img [ref=e379]
+                    - generic [ref=e381]:
+                      - paragraph [ref=e382]: 50+
+                      - paragraph [ref=e383]: Team Members
+                  - generic [ref=e384]:
+                    - img [ref=e386]
+                    - generic [ref=e388]:
+                      - paragraph [ref=e389]: 98%
+                      - paragraph [ref=e390]: Satisfaction Rate
+              - generic [ref=e392]:
+                - img [ref=e394]
+                - generic [ref=e397]:
+                  - generic [ref=e398]:
+                    - heading "Our Story" [level=3] [ref=e399]
+                    - paragraph [ref=e400]: Founded in 2013 by Brett Bosley, HBCS was born from a personal mission to support individuals with intellectual and developmental disabilities.
+                    - link "Read Our Full History" [ref=e401]:
+                      - /url: /history
+                      - text: Read Our Full History
+                      - img [ref=e402]
+                  - generic [ref=e404]:
+                    - paragraph [ref=e405]: "Brett grew up with a sibling who had developmental disabilities, giving him a unique perspective on the challenges and triumphs individuals experience. While serving as a Targeted Case Manager, he identified a critical gap: individuals needed daily supports but wanted the independence they couldn&apos;t find in traditional 24/7 group homes."
+                    - paragraph [ref=e406]: Driven by this vision, Brett built HBCS around an independent living model—high-quality, person-centered supports that empower individuals to live in their own homes, make their own choices, and thrive in their communities. What started as one person&apos;s vision has grown into an organization serving hundreds across Johnson and Wyandotte Counties.
+              - generic [ref=e408]:
+                - heading "Recognized Community Provider" [level=3] [ref=e409]
+                - paragraph [ref=e410]: HBCS is proud to be an affiliated provider listed in official county resources, serving as a trusted partner in the regional disability support network.
+                - generic [ref=e411]:
+                  - generic [ref=e412]:
+                    - heading "CDDO Affiliations" [level=4] [ref=e413]
+                    - list [ref=e414]:
+                      - listitem [ref=e415]:
+                        - img [ref=e416]
+                        - generic [ref=e418]: Johnson County CDDO
+                      - listitem [ref=e419]:
+                        - img [ref=e420]
+                        - generic [ref=e422]: Wyandotte County CDDO
+                  - generic [ref=e423]:
+                    - heading "Community Involvement" [level=4] [ref=e424]
+                    - list [ref=e425]:
+                      - listitem [ref=e426]:
+                        - img [ref=e427]
+                        - generic [ref=e429]: Annual Johnson County IDD Resource Fair
+                      - listitem [ref=e430]:
+                        - img [ref=e431]
+                        - generic [ref=e433]: Participating provider in county networks
+                      - listitem [ref=e434]:
+                        - img [ref=e435]
+                        - generic [ref=e437]: Community partnerships for client engagement
+            - generic [ref=e438]:
+              - heading "Our Values" [level=3] [ref=e439]
+              - paragraph [ref=e440]: These core values guide everything we do and reflect our commitment to those we serve
+            - generic [ref=e441]:
+              - generic [ref=e442]:
+                - img [ref=e444]
+                - heading "Compassion" [level=4] [ref=e446]
+                - paragraph [ref=e447]: We approach every individual with empathy, dignity, and respect, ensuring they feel valued and heard.
+              - generic [ref=e448]:
+                - img [ref=e450]
+                - heading "Community" [level=4] [ref=e452]
+                - paragraph [ref=e453]: We believe in the power of community and work to create inclusive environments where everyone belongs.
+              - generic [ref=e454]:
+                - img [ref=e456]
+                - heading "Innovation" [level=4] [ref=e458]
+                - paragraph [ref=e459]: We continuously seek new and better ways to support individuals on their journey to independence.
+              - generic [ref=e460]:
+                - img [ref=e462]
+                - heading "Excellence" [level=4] [ref=e464]
+                - paragraph [ref=e465]: We are committed to providing the highest quality services and consistently exceeding expectations.
+        - generic [ref=e466]:
+          - generic:
+            - img
+          - generic [ref=e467]:
+            - generic [ref=e468]:
+              - img [ref=e470]
+              - heading "What People Say" [level=2] [ref=e472]
+              - paragraph [ref=e473]: Hear from individuals and families who have experienced the HBCS difference
+            - generic [ref=e474]:
+              - generic [ref=e475]:
+                - img [ref=e477]
+                - generic [ref=e479]:
+                  - img [ref=e480]
+                  - img [ref=e482]
+                  - img [ref=e484]
+                  - img [ref=e486]
+                  - img [ref=e488]
+                - paragraph [ref=e490]: “HBCS has been a blessing for our family. The care and support they provide to our son has been exceptional. We've seen him grow and thrive in ways we never thought possible.”
+                - generic [ref=e491]:
+                  - generic [ref=e492]:
+                    - img [ref=e493]
+                    - generic [ref=e495]: S
+                  - generic [ref=e496]:
+                    - paragraph [ref=e497]: Sarah M.
+                    - paragraph [ref=e498]: Family Member
+              - generic [ref=e499]:
+                - img [ref=e501]
+                - generic [ref=e503]:
+                  - img [ref=e504]
+                  - img [ref=e506]
+                  - img [ref=e508]
+                  - img [ref=e510]
+                  - img [ref=e512]
+                - paragraph [ref=e514]: “I love coming to the day program! The staff are so nice and I've made lots of friends. We do fun activities and I feel happy and supported here.”
+                - generic [ref=e515]:
+                  - generic [ref=e516]:
+                    - img [ref=e517]
+                    - generic [ref=e519]: J
+                  - generic [ref=e520]:
+                    - paragraph [ref=e521]: John D.
+                    - paragraph [ref=e522]: Program Participant
+              - generic [ref=e523]:
+                - img [ref=e525]
+                - generic [ref=e527]:
+                  - img [ref=e528]
+                  - img [ref=e530]
+                  - img [ref=e532]
+                  - img [ref=e534]
+                  - img [ref=e536]
+                - paragraph [ref=e538]: “Living in my own apartment with HBCS support has given me independence and confidence. I'm proud of how far I've come and grateful for everyone who helps me.”
+                - generic [ref=e539]:
+                  - generic [ref=e540]:
+                    - img [ref=e541]
+                    - generic [ref=e543]: M
+                  - generic [ref=e544]:
+                    - paragraph [ref=e545]: Michael R.
+                    - paragraph [ref=e546]: Program Participant
+              - generic [ref=e547]:
+                - img [ref=e549]
+                - generic [ref=e551]:
+                  - img [ref=e552]
+                  - img [ref=e554]
+                  - img [ref=e556]
+                  - img [ref=e558]
+                  - img [ref=e560]
+                - paragraph [ref=e562]: “The case management team has been incredible. They've helped us navigate the complex system of services and always advocate for what's best for our daughter.”
+                - generic [ref=e563]:
+                  - generic [ref=e564]:
+                    - img [ref=e565]
+                    - generic [ref=e567]: L
+                  - generic [ref=e568]:
+                    - paragraph [ref=e569]: Linda T.
+                    - paragraph [ref=e570]: Family Member
+              - generic [ref=e571]:
+                - img [ref=e573]
+                - generic [ref=e575]:
+                  - img [ref=e576]
+                  - img [ref=e578]
+                  - img [ref=e580]
+                  - img [ref=e582]
+                  - img [ref=e584]
+                - paragraph [ref=e586]: “I've learned so many new skills through the residential program. I can cook meals, manage my schedule, and feel more confident every day.”
+                - generic [ref=e587]:
+                  - generic [ref=e588]:
+                    - img [ref=e589]
+                    - generic [ref=e591]: R
+                  - generic [ref=e592]:
+                    - paragraph [ref=e593]: Robert K.
+                    - paragraph [ref=e594]: Program Participant
+              - generic [ref=e595]:
+                - img [ref=e597]
+                - generic [ref=e599]:
+                  - img [ref=e600]
+                  - img [ref=e602]
+                  - img [ref=e604]
+                  - img [ref=e606]
+                  - img [ref=e608]
+                - paragraph [ref=e610]: “The staff at HBCS truly care about the individuals they support. They go above and beyond every single day. We couldn't ask for a better partner in our loved one's care.”
+                - generic [ref=e611]:
+                  - generic [ref=e612]:
+                    - img [ref=e613]
+                    - generic [ref=e615]: E
+                  - generic [ref=e616]:
+                    - paragraph [ref=e617]: Emily W.
+                    - paragraph [ref=e618]: Family Member
+            - generic [ref=e620]:
+              - paragraph [ref=e621]: Join hundreds of individuals and families who trust HBCS
+              - link "Get in Touch" [ref=e622]:
+                - /url: "#contact"
+        - generic [ref=e624]:
+          - generic [ref=e625]:
+            - generic [ref=e626]:
+              - img [ref=e627]
+              - heading "AI-Powered FAQ Assistant" [level=2] [ref=e629]
+              - img [ref=e631]
+            - paragraph [ref=e633]: Ask me anything about HBCS services, eligibility, costs, or general questions. I'm here to help!
+          - textbox "Search FAQ" [ref=e637]:
+            - /placeholder: Search for answers...
+          - generic [ref=e638]:
+            - heading "Try asking:" [level=3] [ref=e639]
+            - generic [ref=e640]:
+              - button "What services do you provide?" [ref=e641] [cursor=pointer]
+              - button "How do I qualify for HBCS?" [ref=e642] [cursor=pointer]
+              - button "What are your hours?" [ref=e643] [cursor=pointer]
+              - button "How much does it cost?" [ref=e644] [cursor=pointer]
+              - button "How can I make a referral?" [ref=e645] [cursor=pointer]
+          - generic [ref=e646]:
+            - button "Filter by All" [pressed] [ref=e647] [cursor=pointer]: All
+            - button "Filter by Services" [ref=e648] [cursor=pointer]: Services
+            - button "Filter by General" [ref=e649] [cursor=pointer]: General
+            - button "Filter by Financial" [ref=e650] [cursor=pointer]: Financial
+            - button "Filter by Contact" [ref=e651] [cursor=pointer]: Contact
+          - generic [ref=e652]:
+            - button "💬 What services does HBCS provide? ▼" [ref=e655] [cursor=pointer]:
+              - generic [ref=e656]:
+                - generic [ref=e657]: 💬
+                - generic [ref=e658]: What services does HBCS provide?
+              - generic [ref=e659]: ▼
+            - button "💬 How do I qualify for HBCS services? ▼" [ref=e662] [cursor=pointer]:
+              - generic [ref=e663]:
+                - generic [ref=e664]: 💬
+                - generic [ref=e665]: How do I qualify for HBCS services?
+              - generic [ref=e666]: ▼
+            - button "💬 What is your Residential Services program? ▼" [ref=e669] [cursor=pointer]:
+              - generic [ref=e670]:
+                - generic [ref=e671]: 💬
+                - generic [ref=e672]: What is your Residential Services program?
+              - generic [ref=e673]: ▼
+            - button "💬 What do you offer in Day Services? ▼" [ref=e676] [cursor=pointer]:
+              - generic [ref=e677]:
+                - generic [ref=e678]: 💬
+                - generic [ref=e679]: What do you offer in Day Services?
+              - generic [ref=e680]: ▼
+            - button "💬 What is Targeted Case Management? ▼" [ref=e683] [cursor=pointer]:
+              - generic [ref=e684]:
+                - generic [ref=e685]: 💬
+                - generic [ref=e686]: What is Targeted Case Management?
+              - generic [ref=e687]: ▼
+            - button "💬 How much do your services cost? ▼" [ref=e690] [cursor=pointer]:
+              - generic [ref=e691]:
+                - generic [ref=e692]: 💬
+                - generic [ref=e693]: How much do your services cost?
+              - generic [ref=e694]: ▼
+            - button "💬 How can I make a referral for myself or a loved one? ▼" [ref=e697] [cursor=pointer]:
+              - generic [ref=e698]:
+                - generic [ref=e699]: 💬
+                - generic [ref=e700]: How can I make a referral for myself or a loved one?
+              - generic [ref=e701]: ▼
+            - button "💬 What are your hours of operation? ▼" [ref=e704] [cursor=pointer]:
+              - generic [ref=e705]:
+                - generic [ref=e706]: 💬
+                - generic [ref=e707]: What are your hours of operation?
+              - generic [ref=e708]: ▼
+            - button "💬 How is HBCS funded? ▼" [ref=e711] [cursor=pointer]:
+              - generic [ref=e712]:
+                - generic [ref=e713]: 💬
+                - generic [ref=e714]: How is HBCS funded?
+              - generic [ref=e715]: ▼
+            - button "💬 Do you have volunteer opportunities? ▼" [ref=e718] [cursor=pointer]:
+              - generic [ref=e719]:
+                - generic [ref=e720]: 💬
+                - generic [ref=e721]: Do you have volunteer opportunities?
+              - generic [ref=e722]: ▼
+            - button "💬 How can I make a donation? ▼" [ref=e725] [cursor=pointer]:
+              - generic [ref=e726]:
+                - generic [ref=e727]: 💬
+                - generic [ref=e728]: How can I make a donation?
+              - generic [ref=e729]: ▼
+            - button "💬 How do I contact HBCS? ▼" [ref=e732] [cursor=pointer]:
+              - generic [ref=e733]:
+                - generic [ref=e734]: 💬
+                - generic [ref=e735]: How do I contact HBCS?
+              - generic [ref=e736]: ▼
+            - button "💬 What should I do in an emergency? ▼" [ref=e739] [cursor=pointer]:
+              - generic [ref=e740]:
+                - generic [ref=e741]: 💬
+                - generic [ref=e742]: What should I do in an emergency?
+              - generic [ref=e743]: ▼
+            - button "💬 What should I expect during the application process? ▼" [ref=e746] [cursor=pointer]:
+              - generic [ref=e747]:
+                - generic [ref=e748]: 💬
+                - generic [ref=e749]: What should I expect during the application process?
+              - generic [ref=e750]: ▼
+          - generic [ref=e752]:
+            - generic [ref=e753]:
+              - img [ref=e754]
+              - heading "Ask Me Anything" [level=3] [ref=e756]
+            - paragraph [ref=e758]: No messages yet. Ask me a question to get started!
+            - generic [ref=e759]:
+              - textbox "Type your question" [ref=e760]:
+                - /placeholder: Type your question here...
+              - button "Send" [ref=e761] [cursor=pointer]
+          - generic [ref=e762]:
+            - paragraph [ref=e763]: Can't find what you're looking for?
+            - button "Contact Us Directly" [ref=e764] [cursor=pointer]:
+              - img [ref=e765]
+              - text: Contact Us Directly
+        - generic [ref=e768]:
+          - generic [ref=e769]:
+            - heading "Contact Us" [level=2] [ref=e770]
+            - paragraph [ref=e771]: Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          - generic [ref=e772]:
+            - generic [ref=e773]:
+              - heading "Get in Touch" [level=3] [ref=e774]
+              - generic [ref=e775]:
+                - generic [ref=e776]:
+                  - img [ref=e778]
+                  - generic [ref=e780]:
+                    - paragraph [ref=e781]: Hours
+                    - paragraph [ref=e782]: "Monday - Friday: 9:00 AM - 2:00 PM"
+                - generic [ref=e783]:
+                  - img [ref=e785]
+                  - generic [ref=e788]:
+                    - paragraph [ref=e789]: Overland Park Location
+                    - link "7600 W. 75th Street Overland Park, Kansas (Inside Overland Park Christian Church)" [ref=e790]:
+                      - /url: https://maps.google.com/?q=7600+W+75th+Street,+Overland+Park,+Kansas
+                - generic [ref=e791]:
+                  - img [ref=e793]
+                  - generic [ref=e796]:
+                    - paragraph [ref=e797]: Olathe Location
+                    - link "413 E. Santa Fe Drive Olathe, Kansas" [ref=e798]:
+                      - /url: https://maps.google.com/?q=413+E+Santa+Fe+Drive,+Olathe,+Kansas
+                - generic [ref=e799]:
+                  - img [ref=e801]
+                  - generic [ref=e803]:
+                    - paragraph [ref=e804]: Mailing Address
+                    - paragraph [ref=e805]: PO Box 23532, Overland Park, KS 66283
+                - generic [ref=e806]:
+                  - img [ref=e808]
+                  - generic [ref=e810]:
+                    - paragraph [ref=e811]: General Inquiries
+                    - generic [ref=e812]:
+                      - link "913-749-8037" [ref=e813]:
+                        - /url: tel:913-749-8037
+                      - link "ashleigh.young@hbcs.care" [ref=e814]:
+                        - /url: mailto:ashleigh.young@hbcs.care
+                - generic [ref=e815]:
+                  - img [ref=e817]
+                  - generic [ref=e819]:
+                    - paragraph [ref=e820]: Brett Bosley - Owner/Operator
+                    - generic [ref=e821]:
+                      - link "913-710-1406" [ref=e822]:
+                        - /url: tel:913-710-1406
+                      - link "brett.bosley@hbcs.care" [ref=e823]:
+                        - /url: mailto:brett.bosley@hbcs.care
+            - generic [ref=e824]:
+              - heading "Send a Message" [level=3] [ref=e825]
+              - generic [ref=e826]:
+                - generic [ref=e827]:
+                  - generic [ref=e828]:
+                    - generic [ref=e829]: Name *
+                    - textbox "Name *" [ref=e830]:
+                      - /placeholder: Your name
+                  - generic [ref=e831]:
+                    - generic [ref=e832]: Email *
+                    - textbox "Email *" [ref=e833]:
+                      - /placeholder: your@email.com
+                - generic [ref=e834]:
+                  - generic [ref=e835]:
+                    - generic [ref=e836]: Phone
+                    - textbox "Phone" [ref=e837]:
+                      - /placeholder: (913) 555-0100
+                  - generic [ref=e838]:
+                    - generic [ref=e839]: Subject *
+                    - combobox "Subject *" [ref=e840]:
+                      - option "Select a subject" [selected]
+                      - option "Services Inquiry"
+                      - option "Make a Referral"
+                      - option "Employment Opportunities"
+                      - option "Partnership Inquiry"
+                      - option "Other"
+                - generic [ref=e841]:
+                  - generic [ref=e842]: Message *
+                  - textbox "Message *" [ref=e843]:
+                    - /placeholder: How can we help you?
+                - button "Send Message" [ref=e844] [cursor=pointer]:
+                  - img [ref=e845]
+                  - text: Send Message
+    - contentinfo [ref=e847]:
+      - generic [ref=e848]:
+        - generic [ref=e849]:
+          - generic [ref=e850]:
+            - link "Honey Bee Community Services - Go to homepage" [ref=e851]:
+              - /url: /
+              - generic [ref=e852]:
+                - img [ref=e857] [cursor=pointer]
+                - generic [ref=e877]:
+                  - generic [ref=e878]: Honeybee
+                  - generic [ref=e879]: Community
+                  - generic [ref=e880]: Services
+            - paragraph [ref=e881]: Honey Bee Community Services, Inc. assists individuals with developmental disabilities to live independently in the community through Residential, Day Supports, and Targeted Case Management. Serving Johnson and Wyandotte Counties in Kansas as an HCBS IDD Waiver provider since 2013.
+            - link [ref=e884]:
+              - /url: https://www.facebook.com/profile.php?id=61559277947065
+              - img [ref=e888]
+            - generic [ref=e890]:
+              - paragraph [ref=e891]: Founded in 2013
+              - paragraph [ref=e893]: Serving Kansas City metropolitan area
+              - paragraph [ref=e895]: HCBS IDD Waiver Provider for Kansas
+            - generic [ref=e897]:
+              - paragraph [ref=e898]: "Mailing Address:"
+              - paragraph [ref=e899]: PO Box 23532, Overland Park, KS 66283
+          - generic [ref=e901]:
+            - heading "Quick Links" [level=3] [ref=e902]
+            - list [ref=e903]:
+              - listitem [ref=e904]:
+                - link "Home" [ref=e905]:
+                  - /url: /
+              - listitem [ref=e906]:
+                - link "Services" [ref=e907]:
+                  - /url: /services
+              - listitem [ref=e908]:
+                - link "Our Vision" [ref=e909]:
+                  - /url: /our-vision
+              - listitem [ref=e910]:
+                - link "History" [ref=e911]:
+                  - /url: /history
+              - listitem [ref=e912]:
+                - link "Contact" [ref=e913]:
+                  - /url: /#contact
+          - generic [ref=e914]:
+            - heading "Services" [level=3] [ref=e915]
+            - list [ref=e916]:
+              - listitem [ref=e917]:
+                - link "Residential Supports" [ref=e918]:
+                  - /url: /services/residential
+              - listitem [ref=e919]:
+                - link "Day Supports" [ref=e920]:
+                  - /url: /services/day-services
+              - listitem [ref=e921]:
+                - link "Case Management" [ref=e922]:
+                  - /url: /services/targeted-case-management
+          - generic [ref=e923]:
+            - heading "CDDO Affiliations" [level=3] [ref=e924]
+            - list [ref=e925]:
+              - listitem [ref=e926]:
+                - link "Johnson County CDDO" [ref=e927]:
+                  - /url: https://www.jocogov.org/department/community-developmental-disabilities-organization
+              - listitem [ref=e928]:
+                - link "Wyandotte County CDDO" [ref=e929]:
+                  - /url: https://www.wycokck.org/Departments/Human-Services/Community-Developmental-Disabilities-Organization
+              - listitem [ref=e930]:
+                - link "Kansas HCBS IDD Waiver" [ref=e931]:
+                  - /url: https://kdads.ks.gov/disability-services/hcbs
+          - generic [ref=e932]:
+            - heading "Kansas Resources" [level=3] [ref=e933]
+            - list [ref=e934]:
+              - listitem [ref=e935]:
+                - link "KDADS" [ref=e936]:
+                  - /url: https://kdads.ks.gov
+        - generic [ref=e937]:
+          - paragraph [ref=e938]: © 2026 Honey Bee Community Services, Inc. All rights reserved.
+          - generic [ref=e939]:
+            - link "Accessibility" [ref=e940]:
+              - /url: "#"
+            - link "Privacy" [ref=e941]:
+              - /url: "#"
+            - link "Terms" [ref=e942]:
+              - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e948] [cursor=pointer]:
+    - img [ref=e949]
+  - alert [ref=e954]
+```

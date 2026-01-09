@@ -1,0 +1,191 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Honey Bee Community Services - Go to homepage" [ref=e7]:
+          - /url: /
+          - generic [ref=e8]:
+            - generic:
+              - generic:
+                - img
+            - generic [ref=e14]:
+              - generic [ref=e15]: Honeybee
+              - generic [ref=e16]: Community
+              - generic [ref=e17]: Services
+        - generic [ref=e18]:
+          - button "Switch to dark mode" [ref=e19] [cursor=pointer]:
+            - img [ref=e20]
+          - button "Open mobile menu" [ref=e22] [cursor=pointer]:
+            - img [ref=e23]
+    - main [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e29]:
+          - heading "Our Services" [level=1] [ref=e30]
+          - paragraph [ref=e31]: Personalized support through Residential, Day Services, and Targeted Case Management to help individuals with intellectual and developmental disabilities live fulfilling, independent lives
+        - generic [ref=e34]:
+          - link "Residential Services Residential Services Supporting independent living with everyday assistance Learn More" [ref=e36]:
+            - /url: /services/residential
+            - generic [ref=e37]:
+              - img "Residential Services" [ref=e38]
+              - generic [ref=e40]:
+                - img [ref=e42]
+                - heading "Residential Services" [level=3] [ref=e44]
+                - paragraph [ref=e45]: Supporting independent living with everyday assistance
+                - generic [ref=e46]:
+                  - generic [ref=e47]: Learn More
+                  - img [ref=e48]
+          - link "Day Services Day Services Community inclusion through choice and adventure Learn More" [ref=e51]:
+            - /url: /services/day-services
+            - generic [ref=e52]:
+              - img "Day Services" [ref=e53]
+              - generic [ref=e55]:
+                - img [ref=e57]
+                - heading "Day Services" [level=3] [ref=e59]
+                - paragraph [ref=e60]: Community inclusion through choice and adventure
+                - generic [ref=e61]:
+                  - generic [ref=e62]: Learn More
+                  - img [ref=e63]
+          - link "Targeted Case Management Targeted Case Management Connecting you to the supports you need Learn More" [ref=e66]:
+            - /url: /services/targeted-case-management
+            - generic [ref=e67]:
+              - img "Targeted Case Management" [ref=e68]
+              - generic [ref=e70]:
+                - img [ref=e72]
+                - heading "Targeted Case Management" [level=3] [ref=e74]
+                - paragraph [ref=e75]: Connecting you to the supports you need
+                - generic [ref=e76]:
+                  - generic [ref=e77]: Learn More
+                  - img [ref=e78]
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - heading "Quick Facts" [level=2] [ref=e83]
+            - paragraph [ref=e84]: What you need to know about HBCS services
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - paragraph [ref=e87]: Service Areas
+              - paragraph [ref=e88]: Johnson & Wyandotte Counties
+            - generic [ref=e89]:
+              - paragraph [ref=e90]: Waiver Provider
+              - paragraph [ref=e91]: HCBS IDD Waiver
+            - generic [ref=e92]:
+              - paragraph [ref=e93]: Founded
+              - paragraph [ref=e94]: "2013"
+            - generic [ref=e95]:
+              - paragraph [ref=e96]: Day Service Hours
+              - paragraph [ref=e97]: Mon-Fri, 9AM-2PM
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: Mission
+              - paragraph [ref=e100]: Independence through Support
+            - generic [ref=e101]:
+              - paragraph [ref=e102]: CDDO Affiliations
+              - paragraph [ref=e103]: Johnson & Wyandotte
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - heading "Find Us Near You" [level=2] [ref=e107]
+            - paragraph [ref=e108]: Our two day service locations serving the Kansas City metropolitan area
+          - paragraph [ref=e112]: Loading map...
+        - generic [ref=e115]:
+          - heading "Ready to Get Started?" [level=2] [ref=e116]
+          - paragraph [ref=e117]: Contact us today to learn how our services can support you or your loved one
+          - link "Contact us today to learn more about our services" [ref=e118]:
+            - /url: /#contact
+            - text: Contact Us Today
+            - img [ref=e119]
+    - contentinfo [ref=e121]:
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - link "Honey Bee Community Services - Go to homepage" [ref=e125]:
+              - /url: /
+              - generic [ref=e126]:
+                - img [ref=e131] [cursor=pointer]
+                - generic [ref=e151]:
+                  - generic [ref=e152]: Honeybee
+                  - generic [ref=e153]: Community
+                  - generic [ref=e154]: Services
+            - paragraph [ref=e155]: Honey Bee Community Services, Inc. assists individuals with developmental disabilities to live independently in the community through Residential, Day Supports, and Targeted Case Management. Serving Johnson and Wyandotte Counties in Kansas as an HCBS IDD Waiver provider since 2013.
+            - link [ref=e158]:
+              - /url: https://www.facebook.com/profile.php?id=61559277947065
+              - img [ref=e162]
+            - generic [ref=e164]:
+              - paragraph [ref=e165]: Founded in 2013
+              - paragraph [ref=e167]: Serving Kansas City metropolitan area
+              - paragraph [ref=e169]: HCBS IDD Waiver Provider for Kansas
+            - generic [ref=e171]:
+              - paragraph [ref=e172]: "Mailing Address:"
+              - paragraph [ref=e173]: PO Box 23532, Overland Park, KS 66283
+          - generic [ref=e175]:
+            - heading "Quick Links" [level=3] [ref=e176]
+            - list [ref=e177]:
+              - listitem [ref=e178]:
+                - link "Home" [ref=e179]:
+                  - /url: /
+              - listitem [ref=e180]:
+                - link "Services" [ref=e181]:
+                  - /url: /services
+              - listitem [ref=e182]:
+                - link "Our Vision" [ref=e183]:
+                  - /url: /our-vision
+              - listitem [ref=e184]:
+                - link "History" [ref=e185]:
+                  - /url: /history
+              - listitem [ref=e186]:
+                - link "Contact" [ref=e187]:
+                  - /url: /#contact
+          - generic [ref=e188]:
+            - heading "Services" [level=3] [ref=e189]
+            - list [ref=e190]:
+              - listitem [ref=e191]:
+                - link "Residential Supports" [ref=e192]:
+                  - /url: /services/residential
+              - listitem [ref=e193]:
+                - link "Day Supports" [ref=e194]:
+                  - /url: /services/day-services
+              - listitem [ref=e195]:
+                - link "Case Management" [ref=e196]:
+                  - /url: /services/targeted-case-management
+          - generic [ref=e197]:
+            - heading "CDDO Affiliations" [level=3] [ref=e198]
+            - list [ref=e199]:
+              - listitem [ref=e200]:
+                - link "Johnson County CDDO" [ref=e201]:
+                  - /url: https://www.jocogov.org/department/community-developmental-disabilities-organization
+              - listitem [ref=e202]:
+                - link "Wyandotte County CDDO" [ref=e203]:
+                  - /url: https://www.wycokck.org/Departments/Human-Services/Community-Developmental-Disabilities-Organization
+              - listitem [ref=e204]:
+                - link "Kansas HCBS IDD Waiver" [ref=e205]:
+                  - /url: https://kdads.ks.gov/disability-services/hcbs
+          - generic [ref=e206]:
+            - heading "Kansas Resources" [level=3] [ref=e207]
+            - list [ref=e208]:
+              - listitem [ref=e209]:
+                - link "KDADS" [ref=e210]:
+                  - /url: https://kdads.ks.gov
+        - generic [ref=e211]:
+          - paragraph [ref=e212]: © 2026 Honey Bee Community Services, Inc. All rights reserved.
+          - generic [ref=e213]:
+            - link "Accessibility" [ref=e214]:
+              - /url: "#"
+            - link "Privacy" [ref=e215]:
+              - /url: "#"
+            - link "Terms" [ref=e216]:
+              - /url: "#"
+  - generic [ref=e221] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e222]:
+      - img [ref=e223]
+    - generic [ref=e228]:
+      - button "Open issues overlay" [ref=e229]:
+        - generic [ref=e230]:
+          - generic [ref=e231]: "0"
+          - generic [ref=e232]: "1"
+        - generic [ref=e233]: Issue
+      - button "Collapse issues badge" [ref=e234]:
+        - img [ref=e235]
+  - alert [ref=e237]
+```

@@ -54,7 +54,7 @@ export default function Testimonials() {
   return (
     <section data-testid="testimonials-section" className="py-20 bg-gradient-to-br from-honey-50 to-wax-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Honeycomb Pattern Background */}
-      <HoneycombPattern size="md" opacity={0.05} color="#FFD700" animate={true} />
+      <HoneycombPattern stringSize="md" opacity={0.05} color="#FFD700" animated={true} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <FadeIn className="text-center mb-16">

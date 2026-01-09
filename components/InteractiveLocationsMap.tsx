@@ -19,11 +19,15 @@ export default function InteractiveLocationsMap() {
   const [map, setMap] = useState<any>(null)
   const [isMounted, setIsMounted] = useState(false)
 
+  const handleLocationClick = (location: Location) => {
+    setMapState({ selectedLocation: location })
+  }
+
   // Memoize dynamic styles to prevent re-renders
   const tagStyle = useMemo(
     () => ({
-      backgroundColor: selectedLocation.color ? `${selectedLocation.color}20` : '#F3F4F6',
-      color: selectedLocation.color ?? '#F3F4F6'
+      backgroundColor: selectedLocation?.color ? `${selectedLocation.color}20` : '#F3F4F6',
+      color: selectedLocation?.color ?? '#F3F4F6'
     }),
     [selectedLocation?.color]
   )
@@ -57,7 +61,7 @@ export default function InteractiveLocationsMap() {
               transition={{ delay: index * 0.1 }}
               onClick={() => handleLocationClick(location)}
               className={`cursor-pointer rounded-2xl p-6 transition-all duration-300 ${
-                selectedLocation.id === location.id
+                selectedLocation?.id === location.id
                   ? 'bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-900/20 border-2 border-amber-500 shadow-lg'
                   : 'bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-amber-300 dark:hover:border-amber-700 shadow-md'
               }`}
@@ -93,7 +97,7 @@ export default function InteractiveLocationsMap() {
 
                 <div className="flex-shrink-0">
                   <motion.div
-                    animate={{ rotate: selectedLocation.id === location.id ? 90 : 0 }}
+                    animate={{ rotate: selectedLocation?.id === location.id ? 90 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
                     <ArrowTopRightOnSquareIcon className="w-5 h-5 text-gray-400" />
