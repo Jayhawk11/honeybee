@@ -1,0 +1,30 @@
+{
+  "name": "HBCS - Honey Bee Community Services",
+  "short_name": "HBCS",
+  "description": "Supporting individuals with intellectual and developmental disabilities to live independently in community through Residential, Day Supports, and Targeted Case Management.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F59E0B",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/logo-icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo-icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "services",
+    "disability support",
+    "community",
+    "nonprofit"
+  ]
+}

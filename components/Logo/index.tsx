@@ -8,7 +8,6 @@ import LogoContainer from './LogoContainer'
 import AnimatedLogo from './AnimatedLogo'
 import LogoText from './LogoText'
 import HoneycombPattern from './HoneycombPattern'
-import ParticleField from './ParticleField'
 import { useTheme } from '@/contexts/ThemeContext'
 
 // Lazy load 3D logo to avoid loading Three.js on initial page load
@@ -16,6 +15,11 @@ const Logo3D = dynamic(() => import('./Logo3D'), {
   loading: () => (
     <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse" />
   ),
+  ssr: false
+})
+
+// Lazy load ParticleField to avoid loading Three.js on initial page load
+const ParticleField = dynamic(() => import('./ParticleField'), {
   ssr: false
 })
 
@@ -192,8 +196,8 @@ export default function Logo({
   )
 
   if (href) {
-    return (
-      <Link href={href} className="flex items-center group">
+  return (
+    <Link href={href} aria-label="Honey Bee Community Services - Go to homepage" className="flex items-center group">
         {LogoContent}
       </Link>
     )

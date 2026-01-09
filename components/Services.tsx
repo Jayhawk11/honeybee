@@ -65,6 +65,7 @@ export default function Services() {
   return (
     <Section
       id="services"
+      data-testid="services-section"
       title="Our Services"
       description="Comprehensive support services tailored to help individuals with intellectual and developmental disabilities live fulfilling, independent lives"
       className="bg-white dark:bg-gray-900"

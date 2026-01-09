@@ -10,6 +10,7 @@ export default function About() {
   return (
     <Section
       id="about"
+      data-testid="about-section"
       title="About HBCS"
       description="Founded in 2013, Honey Bee Community Services has been dedicated to empowering individuals with intellectual and developmental disabilities to live their best lives"
       className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"

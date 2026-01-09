@@ -1,0 +1,59 @@
+{
+  "budgets": [
+    {
+      "path": "/*",
+      "timings": [
+        {
+          "metric": "First Contentful Paint",
+          "budget": 2000
+        },
+        {
+          "metric": "Largest Contentful Paint",
+          "budget": 2500
+        },
+        {
+          "metric": "Total Blocking Time",
+          "budget": 600
+        },
+        {
+          "metric": "Time to Interactive",
+          "budget": 3500
+        },
+        {
+          "metric": "Cumulative Layout Shift",
+          "budget": 0.1
+        },
+        {
+          "metric": "First Input Delay",
+          "budget": 100
+        }
+      ]
+    },
+    {
+      "path": "/services/**",
+      "timings": [
+        {
+          "metric": "First Contentful Paint",
+          "budget": 2500
+        },
+        {
+          "metric": "Largest Contentful Paint",
+          "budget": 2500
+        }
+      ]
+    },
+    {
+      "path": "/*.js",
+      "timings": [
+        {
+          "metric": "First Contentful Paint",
+          "budget": 2000
+        },
+        {
+          "metric": "Total Blocking Time",
+          "budget": 600
+        }
+      ]
+    }
+  ]
+}

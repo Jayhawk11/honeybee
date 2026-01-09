@@ -62,7 +62,14 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState('All')
+  const [isLoaded, setIsLoaded] = useState(false)
   const lightboxRef = useRef<HTMLDivElement>(null)
+
+  // Simulate fast load, show skeleton briefly
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   const filteredImages = selectedCategory === 'All'
     ? galleryImages
@@ -126,14 +133,15 @@ export default function Gallery() {
   }, [selectedImage])
 
   return (
-    <section id="gallery" className="py-20 bg-white dark:bg-gray-900">
+    <section id="gallery" data-testid="gallery-section" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+         <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           style={{ willChange: 'opacity, transform' }}
+           className="text-center mb-16"
+         >
           <div className="inline-flex items-center justify-center gap-2 mb-6">
             <MagnifyingGlassIcon className="w-8 h-8 text-primary-400" />
           </div>
@@ -145,21 +153,31 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        {/* Live region for screen readers */}
-        <div
-          role="status"
-          aria-live="polite"
-          className="sr-only"
-        >
-          Showing {filteredImages.length} images in {selectedCategory === 'All' ? 'all categories' : selectedCategory}
-        </div>
+         {/* Live region for screen readers */}
+         <div
+           role="status"
+           aria-live="polite"
+           className="sr-only"
+         >
+           Showing {filteredImages.length} images in {selectedCategory === 'All' ? 'all categories' : selectedCategory}
+         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
+         {/* Skeleton Loading State */}
+         {!isLoaded && (
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+             {[1, 2, 3, 4].map(i => (
+               <div key={i} className="aspect-square bg-gray-200 dark:bg-gray-800 rounded-2xl animate-pulse" />
+             ))}
+           </div>
+         )}
+
+         <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           animate={{ opacity: isLoaded ? 1 : 0 }}
+           className="flex flex-wrap justify-center gap-3 mb-12"
+         >
           {categories.map((category) => (
             <button
               key={category}
@@ -189,13 +207,15 @@ export default function Gallery() {
               onClick={() => openLightbox(index)}
             >
               <div className="relative aspect-square overflow-hidden rounded-2xl">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
+                 <Image
+                   src={image.src}
+                   alt={image.alt}
+                   fill
+                   priority={index === 0}
+                   loading={index < 4 ? 'eager' : 'lazy'}
+                   className="object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-white font-semibold mb-1">{image.caption}</p>

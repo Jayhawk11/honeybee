@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { StarIcon } from '@heroicons/react/24/solid'
-import HoneycombPattern from './HoneycombPattern'
+import HoneycombPattern from './Logo/HoneycombPattern'
 import { FadeIn } from '@/lib/animations'
 
 const QuoteIcon = ({ className }: { className?: string }) => (
@@ -52,7 +52,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-gradient-to-br from-honey-50 to-wax-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section data-testid="testimonials-section" className="py-20 bg-gradient-to-br from-honey-50 to-wax-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Honeycomb Pattern Background */}
       <HoneycombPattern size="md" opacity={0.05} color="#FFD700" animate={true} />
 

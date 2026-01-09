@@ -1,0 +1,87 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FEF9F3"/>
+
+  <!-- Subtle honeycomb pattern (opacity 8%) -->
+  <g opacity="0.08">
+    <!-- Row 1 -->
+    <path d="M50 0 L95 25 L95 75 L50 100 L5 75 L5 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M150 0 L195 25 L195 75 L150 100 L105 75 L105 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M250 0 L295 25 L295 75 L250 100 L205 75 L205 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M350 0 L395 25 L395 75 L350 100 L305 75 L305 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M450 0 L495 25 L495 75 L450 100 L405 75 L405 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M550 0 L595 25 L595 75 L550 100 L505 75 L505 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M650 0 L695 25 L695 75 L650 100 L605 75 L605 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M750 0 L795 25 L795 75 L750 100 L705 75 L705 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M850 0 L895 25 L895 75 L850 100 L805 75 L805 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M950 0 L995 25 L995 75 L950 100 L905 75 L905 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M1050 0 L1095 25 L1095 75 L1050 100 L1005 75 L1005 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+    <path d="M1150 0 L1195 25 L1195 75 L1150 100 L1105 75 L1105 25 Z" stroke="#FCD34D" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Main Logo Group - Centered -->
+  <g transform="translate(480, 200)">
+    <!-- Back Wing -->
+    <g opacity="0.6">
+      <ellipse cx="40" cy="45" rx="12" ry="8" fill="#FCD34D" stroke="#B45309" stroke-width="1"/>
+    </g>
+
+    <!-- Bee Body with Stripes -->
+    <ellipse cx="50" cy="55" rx="20" ry="25" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+    <!-- Stripes -->
+    <line x1="35" y1="45" x2="65" y2="45" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
+    <line x1="35" y1="55" x2="65" y2="55" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
+    <line x1="35" y1="65" x2="65" y2="65" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Eyes -->
+    <circle cx="42" cy="35" r="3" fill="#000000"/>
+    <circle cx="58" cy="35" r="3" fill="#000000"/>
+    <!-- Eye shine -->
+    <circle cx="41" cy="34" r="1" fill="white"/>
+    <circle cx="57" cy="34" r="1" fill="white"/>
+
+    <!-- Smile -->
+    <path d="M 45 42 Q 50 47 55 42" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Antennae -->
+    <path d="M 42 30 Q 38 20 35 22" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="35" cy="22" r="2" fill="#FCD34D"/>
+    <path d="M 58 30 Q 62 20 65 22" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="65" cy="22" r="2" fill="#FCD34D"/>
+
+    <!-- Stinger -->
+    <path d="M 50 80 L 50 88" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Front Wing (larger, more prominent) -->
+    <ellipse cx="70" cy="45" rx="12" ry="8" fill="#FCD34D" stroke="#B45309" stroke-width="1"/>
+  </g>
+
+  <!-- Text Section -->
+  <g transform="translate(600, 250)">
+    <!-- Main Title -->
+    <text x="0" y="0" font-family="'Poppins', sans-serif" font-size="64" font-weight="700" fill="#2D2D2D">
+      HBCS, Inc.
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="70" font-family="'Poppins', sans-serif" font-size="32" font-weight="400" fill="#FCD34D">
+      Honey Bee Community Services
+    </text>
+
+    <!-- Tagline -->
+    <text x="0" y="130" font-family="'Poppins', sans-serif" font-size="22" font-weight="400" fill="#6B7280">
+      Supporting Independence, Building Community
+    </text>
+  </g>
+
+  <!-- Bottom decorative accent -->
+  <rect x="0" y="600" width="1200" height="30" fill="#FCD34D" opacity="0.1"/>
+  <rect x="0" y="600" width="1200" height="30" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:0.3"/>
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#FCD34D;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+</svg>

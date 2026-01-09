@@ -18,6 +18,9 @@ const About = dynamic(() => import('@/components/About'), {
 const Testimonials = dynamic(() => import('@/components/Testimonials'), {
   loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
 })
+const FAQAssistant = dynamic(() => import('@/components/FAQAssistant'), {
+  loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+})
 const Contact = dynamic(() => import('@/components/Contact'), {
   loading: () => <div className="h-96 bg-gray-100 dark:bg-gray-800 animate-pulse" />
 })
@@ -47,6 +50,9 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<div className="h-96 animate-pulse" />}>
         <Testimonials />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse" />}>
+        <FAQAssistant />
       </Suspense>
       <Suspense fallback={<div className="h-96 animate-pulse" />}>
         <Contact />

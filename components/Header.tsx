@@ -74,7 +74,7 @@ export default function Header() {
           <Logo variant="tier3" size="md" href="/" />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation" data-testid="main-navigation">
             {navItems.map((item) => (
               <div key={item.name} className="relative">
                 {item.hasSubmenu ? (
@@ -82,13 +82,17 @@ export default function Header() {
                     <button
                       className="text-gray-700 dark:text-gray-300 hover:text-primary-400 dark:hover:text-primary-400 transition-colors font-medium flex items-center"
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      aria-expanded={isServicesOpen}
+                      aria-controls="services-submenu"
+                      aria-haspopup="menu"
                     >
-                      {item.name}
+                      <span>{item.name}</span>
                       <svg
                         className={`ml-1 w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -101,29 +105,43 @@ export default function Header() {
                     <AnimatePresence>
                       {isServicesOpen && (
                         <motion.div
+                          id="services-submenu"
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-900 rounded-lg shadow-xl overflow-hidden"
+                          role="menu"
+                          aria-label="Services"
                         >
-                          {serviceSubItems.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 hover:text-primary-400 transition-colors"
-                              onClick={() => setIsServicesOpen(false)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
+                          {serviceSubItems.map((subItem) => {
+                   const testId = subItem.href
+                     .replace(/^\//, '')
+                     .replace(/\//g, '-')
+                     .replace(/-/g, '');
+                   return (
+                     <Link
+                        key={subItem.name}
+                        href={subItem.href}
+                        role="menuitem"
+                        prefetch={true}
+                        className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 hover:text-primary-400 transition-colors"
+                        onClick={() => setIsServicesOpen(false)}
+                        data-testid={`nav-${testId}`}
+                      >
+                       {subItem.name}
+                     </Link>
+                   );
+                          })}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </>
-                ) : (
+                 ) : (
                   <Link
                     href={item.href}
+                    prefetch={item.href === '/' || item.href === '/services' || item.href === '/our-vision' || item.href === '/#contact'}
                     className="text-gray-700 dark:text-gray-300 hover:text-primary-400 dark:hover:text-primary-400 transition-colors font-medium"
+                    data-testid={`nav-${item.href.replace(/\//g, '').replace(/-/g, '')}`}
                   >
                     {item.name}
                   </Link>
@@ -137,7 +155,9 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle theme"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              aria-pressed={theme === 'dark'}
+              data-testid="theme-toggle"
             >
               {theme === 'light' ? (
                 <MoonIcon className="w-5 h-5 text-gray-700" />
@@ -150,91 +170,104 @@ export default function Header() {
             <button
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              data-testid="mobile-menu-toggle"
             >
               {isMobileMenuOpen ? (
-                <XMarkIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                <XMarkIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
               ) : (
-                <Bars3Icon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                <Bars3Icon className="w-6 h-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800"
-          >
-            <nav className="px-4 py-4 space-y-2">
-              {navItems.map((item) => (
-                <div key={item.name}>
-                  {item.hasSubmenu ? (
-                    <>
-                      <button
-                        className="w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium flex justify-between items-center"
-                        onClick={() => setIsServicesOpen(!isServicesOpen)}
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              id="mobile-menu"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800"
+              role="navigation"
+              aria-label="Mobile navigation"
+            >
+              <nav className="px-4 py-4 space-y-2">
+                {navItems.map((item) => (
+                  <div key={item.name}>
+                    {item.hasSubmenu ? (
+                      <>
+                        <button
+                          className="w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium flex justify-between items-center"
+                          onClick={() => setIsServicesOpen(!isServicesOpen)}
+                          aria-expanded={isServicesOpen}
+                          aria-controls={`mobile-${item.name.toLowerCase()}-submenu`}
+                        >
+                          {item.name}
+                          <svg
+                            className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                        <AnimatePresence>
+                          {isServicesOpen && (
+                            <motion.div
+                              id={`mobile-${item.name.toLowerCase()}-submenu`}
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 space-y-1"
+                              role="menu"
+                            >
+                              {serviceSubItems.map((subItem) => (
+                                 <Link
+                                   key={subItem.name}
+                                   href={subItem.href}
+                                   role="menuitem"
+                                   prefetch={true}
+                                   className="block px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-400 transition-colors"
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false)
+                                    setIsServicesOpen(false)
+                                  }}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium"
+                        onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
-                        <svg
-                          className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {isServicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 space-y-1"
-                          >
-                            {serviceSubItems.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="block px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-400 transition-colors"
-                                onClick={() => {
-                                  setIsMobileMenuOpen(false)
-                                  setIsServicesOpen(false)
-                                }}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        </div>
     </motion.header>
   )
 }

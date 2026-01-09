@@ -13,17 +13,17 @@ interface EventPhoto {
 const events: EventPhoto[] = [
   {
     title: 'KC Police Station',
-    imageUrl: '/assets/kc-police-station.jpg',
+    imageUrl: '/assets/kc-police-station.webp',
     description: 'Community outreach event at Kansas City Kansas Police Station'
   },
   {
     title: 'Union Station',
-    imageUrl: '/assets/union-station.jpg',
+    imageUrl: '/assets/union-station.webp',
     description: 'Visit to historic Union Station'
   },
   {
     title: 'Renaissance Festival',
-    imageUrl: '/assets/renaissance-festival.jpg',
+    imageUrl: '/assets/renaissance-festival.webp',
     description: 'Annual Knights of Lights Festival celebration'
   }
 ]
@@ -94,7 +94,7 @@ export default function EventPhotoSlideshow() {
               alt={events[currentIndex].title}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
               priority={currentIndex === 0}
             />
           </motion.div>

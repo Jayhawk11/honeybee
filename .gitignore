@@ -34,3 +34,11 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Facebook Scraped Content (Local only)
+facebook-scraped-content.json
+public/images/facebook/
+public/data/facebook-*.json
+public/data/photos-manifest.json
+public/data/compiled-facebook-content.json
+public/data/content-mapping-recommendations.md

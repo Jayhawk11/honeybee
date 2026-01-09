@@ -6,14 +6,20 @@ import { useTheme } from '@/contexts/ThemeContext'
 
 interface HoneycombPatternProps {
   size?: number
+  stringSize?: 'sm' | 'md' | 'lg'
   density?: 'low' | 'medium' | 'high'
   animated?: boolean
+  opacity?: number
+  color?: string
 }
 
 export default function HoneycombPattern({
   size = 20,
+  stringSize = 'md',
   density = 'medium',
   animated = true,
+  opacity = 0.6,
+  color,
 }: HoneycombPatternProps) {
   const themeContext = useTheme()
   const theme = themeContext?.theme || 'light'
@@ -31,25 +37,33 @@ export default function HoneycombPattern({
     },
   }
 
-  const currentColors = theme === 'light' ? colors.light : colors.dark
+  // Set colors based on props or theme
+  const currentColors: typeof colors.light = color
+    ? { fill: color, stroke: color, glow: color }
+    : theme === 'light'
+    ? colors.light
+    : colors.dark
+
+  // Determine hexagon size from either number or string prop
+  const hexagonSize = size || (stringSize === 'sm' ? 20 : stringSize === 'md' ? 30 : 40)
 
   // Generate hexagon path
   const hexagonPath = useMemo(() => {
     const angle = (Math.PI / 3)
-    let path = `M ${size} 0`
+    let path = `M ${hexagonSize} 0`
     for (let i = 1; i < 6; i++) {
-      const x = size + size * Math.cos(i * angle)
-      const y = size + size * Math.sin(i * angle)
+      const x = hexagonSize + hexagonSize * Math.cos(i * angle)
+      const y = hexagonSize + hexagonSize * Math.sin(i * angle)
       path += ` L ${x} ${y}`
     }
     path += ' Z'
     return path
-  }, [size])
+  }, [hexagonSize])
 
   // Generate grid positions
   const gridPositions = useMemo(() => {
-    const hexHeight = size * Math.sqrt(3)
-    const hexWidth = size * 2
+    const hexHeight = hexagonSize * Math.sqrt(3)
+    const hexWidth = hexagonSize * 2
     const vertDist = hexHeight
     const horizDist = hexWidth * 0.75
 
@@ -71,7 +85,7 @@ export default function HoneycombPattern({
     }
 
     return positions
-  }, [size, density])
+  }, [hexagonSize, density])
 
   const hexagonVariants = {
     hidden: {
@@ -101,11 +115,11 @@ export default function HoneycombPattern({
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ opacity: opacity.toString() }}>
       <svg
         width="100%"
         height="100%"
-        viewBox={`0 0 ${size * 12} ${size * 8}`}
+        viewBox={`0 0 ${hexagonSize * 12} ${hexagonSize * 8}`}
         preserveAspectRatio="xMidYMid slice"
         className="opacity-60"
       >
@@ -119,7 +133,7 @@ export default function HoneycombPattern({
             transition={{
               delay: animated ? pos.delay : 0,
             }}
-            style={{ transformOrigin: `${pos.x + size}px ${pos.y + size}px` }}
+            style={{ transformOrigin: `${pos.x + hexagonSize}px ${pos.y + hexagonSize}px` }}
           >
             {/* Hexagon fill */}
             <motion.path

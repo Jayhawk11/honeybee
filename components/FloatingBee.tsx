@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 
 interface FloatingBeeProps {
   className?: string
@@ -39,13 +40,16 @@ export default function FloatingBee({
   const { width, height } = sizes[size]
   const { body, stripes, wing } = colors[color]
 
+  // Memoize size style to prevent re-renders and enable GPU acceleration
+  const sizeStyle = useMemo(() => ({ width, height, willChange: 'opacity, transform' }), [width, height])
+
   return (
     <motion.div
       className={className}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay }}
-      style={{ width, height }}
+      style={sizeStyle}
     >
       <motion.svg
         width="100%"

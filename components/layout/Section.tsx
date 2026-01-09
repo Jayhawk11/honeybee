@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
-import HoneycombPattern from '../HoneycombPattern'
+import HoneycombPattern from '../Logo/HoneycombPattern'
 
 interface SectionProps {
   id?: string
