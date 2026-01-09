@@ -43,7 +43,7 @@ export default function Header() {
     return (
       <header className={`fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex justify-between items-center h-16 md:h-20 lg:h-24 xl:h-28">
             <Logo variant="tier3" size="md" href="/" />
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
@@ -68,13 +68,15 @@ export default function Header() {
           : 'bg-white/90 dark:bg-black/90 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <Logo variant="tier3" size="md" href="/" />
+        <div className="w-full px-1">
+          <div className="flex items-center w-full h-16 md:h-20">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Logo variant="tier1" size="md" href="/" />
+            </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation" data-testid="main-navigation">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center flex-1 justify-center gap-8 lg:gap-12" aria-label="Main navigation" data-testid="main-navigation">
             {navItems.map((item) => (
               <div key={item.name} className="relative">
                 {item.hasSubmenu ? (
@@ -150,21 +152,21 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-              aria-pressed={theme === 'dark'}
-              data-testid="theme-toggle"
-            >
-              {theme === 'light' ? (
-                <MoonIcon className="w-5 h-5 text-gray-700" />
-              ) : (
-                <SunIcon className="w-5 h-5 text-yellow-400" />
-              )}
-            </button>
+           {/* Theme Toggle & Mobile Menu Button */}
+           <div className="flex items-center space-x-3">
+             <button
+               onClick={toggleTheme}
+               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+               aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+               aria-pressed={theme === 'dark'}
+               data-testid="theme-toggle"
+             >
+               {theme === 'light' ? (
+                 <MoonIcon className="w-5 h-5 text-gray-700" />
+               ) : (
+                 <SunIcon className="w-5 h-5 text-yellow-400" />
+               )}
+             </button>
 
             {/* Mobile menu button */}
             <button

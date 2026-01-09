@@ -6,19 +6,20 @@ import { useTheme } from '@/contexts/ThemeContext'
 interface LogoTextProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
   showInc?: boolean
+  compact?: boolean
 }
 
-export default function LogoText({ size = 'md', showInc = true }: LogoTextProps) {
+export default function LogoText({ size = 'md', showInc = true, compact = false }: LogoTextProps) {
   const themeContext = useTheme()
   const theme = themeContext?.theme || 'light'
 
-  const text = 'Honeybee Community Services'
+  const text = compact ? 'Honeybee' : 'Honeybee Community Services'
 
   const sizeClasses = {
-    sm: 'text-lg sm:text-xl',
-    md: 'text-xl sm:text-2xl',
-    lg: 'text-2xl sm:text-3xl',
-    xl: 'text-3xl sm:text-4xl',
+    sm: 'text-lg md:text-xl lg:text-2xl xl:text-3xl',
+    md: 'text-xl md:text-2xl lg:text-3xl xl:text-4xl',
+    lg: 'text-2xl md:text-3xl lg:text-4xl xl:text-5xl',
+    xl: 'text-3xl md:text-4xl lg:text-5xl xl:text-6xl',
   }
 
   const words = text.split(' ')

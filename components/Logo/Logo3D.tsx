@@ -122,21 +122,8 @@ interface Logo3DProps {
 export default function Logo3D({ size = 200, interactive = true }: Logo3DProps) {
   const themeContext = useTheme()
   const theme = themeContext?.theme || 'light'
-  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-    return () => setMounted(false)
-  }, [])
-
-  if (!mounted) {
-    return (
-      <div
-        style={{ width: size, height: size }}
-        className="bg-gray-100 dark:bg-gray-800 rounded-full animate-pulse"
-      />
-    )
-  }
+  // Remove mounted state - always render immediately
 
   return (
     <div

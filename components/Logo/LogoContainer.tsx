@@ -55,10 +55,10 @@ export default function LogoContainer({
   }
 
   const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-10 h-10 md:w-12 md:h-12',
-    lg: 'w-12 h-12 md:w-14 md:h-14',
-    xl: 'w-14 h-14 md:w-16 md:h-16',
+    sm: 'w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14',
+    md: 'w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16',
+    lg: 'w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18',
+    xl: 'w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20',
   }
 
   const LogoContent = (
