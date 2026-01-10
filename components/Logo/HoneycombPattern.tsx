@@ -98,7 +98,7 @@ export default function HoneycombPattern({
       scale: 1,
       rotate: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 50,
         damping: 25,
       },
@@ -107,7 +107,7 @@ export default function HoneycombPattern({
       scale: 1.1,
       opacity: 0.8,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 400,
         damping: 25,
       },
