@@ -17,6 +17,9 @@ const baseConfig: NextConfig = {
   // Enable React Strict Mode for catching bugs
   reactStrictMode: true,
 
+  // Remove X-Powered-By header for security and smaller responses
+  poweredByHeader: false,
+
   // Optimize images for better performance
   images: {
     unoptimized: true,
@@ -37,7 +40,7 @@ const baseConfig: NextConfig = {
     cpus: Math.max(1, 2),
 
     // Enable optimized package imports
-    optimizePackageImports: ['framer-motion', 'lucide-react'],
+    optimizePackageImports: ['framer-motion', 'lucide-react', '@heroicons/react'],
   },
 
   // Empty turbopack config to silence warning
