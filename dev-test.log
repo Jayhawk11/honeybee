@@ -5,12 +5,13 @@
 ▲ Next.js 16.1.1 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.1.187:3000
+- Environments: .env.local
 - Experiments (use with caution):
   · cpus: 2
   · optimizePackageImports
 
 ✓ Starting...
-✓ Ready in 1363ms
+✓ Ready in 1477ms
 ⨯ ERROR: This build is using Turbopack, with a `webpack` config and no `turbopack` config.
    This may be a mistake.
 

@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import withBundleAnalyzer from '@next/bundle-analyzer'
 const withPWA = require('next-pwa')({
   dest: 'public',
   disable: process.env.NODE_ENV === 'development',
@@ -38,39 +39,8 @@ const baseConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
-  // Webpack configuration optimizations
-  webpack: (config, { dev, isServer }) => {
-    // Optimize module resolution
-    config.resolve.alias = {
-      ...config.resolve.alias,
-    }
-
-    // Faster builds with cache
-    config.cache = {
-      type: 'filesystem',
-      cacheDirectory: '.next/cache/webpack',
-    }
-
-    // Add performance budget for production
-    if (!dev && !isServer) {
-      config.performance = {
-        budget: [
-          {
-            type: 'initial',
-            maxEntrypointSize: 250000, // 250KB initial JS
-            name: 'main',
-          },
-          {
-            type: 'asset',
-            maxAssetSize: 200000, // 200KB for images/css
-            name: 'assets',
-          },
-        ],
-      }
-    }
-
-    return config
-  },
+  // Empty turbopack config to silence warning
+  turbopack: {},
 
   // Enable HTTP/2 connection pooling
   httpAgentOptions: {
@@ -86,10 +56,20 @@ const baseConfig: NextConfig = {
     productionBrowserSourceMaps: false,
   }),
 
-  ...(process.env.NODE_ENV === 'development' && {
+  ...(process.env.NODE_ENV !== 'production' && {
     // Development optimizations
-    // Disable some optimizations in dev for faster startup
+    // Faster rebuilds with on-demand entries
+    onDemandEntries: {
+      maxInactiveAge: 25 * 1000,
+      pagesBufferLength: 2,
+    },
   }),
 }
 
-export default withPWA(baseConfig)
+const configWithBundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+const finalConfig = configWithBundleAnalyzer(baseConfig)
+
+export default withPWA(finalConfig)

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { StarIcon } from '@heroicons/react/24/solid'
 import HoneycombPattern from './Logo/HoneycombPattern'
@@ -51,6 +52,53 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 200)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isLoaded) {
+    return (
+      <section data-testid="testimonials-section" className="py-20 bg-gradient-to-br from-honey-50 to-wax-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+        <HoneycombPattern stringSize="md" opacity={0.05} color="#FFD700" animated={false} />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 space-y-4">
+            <div className="w-8 h-8 mx-auto bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse" />
+            <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse w-2/3 mx-auto" />
+            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse w-1/2 mx-auto" />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg animate-pulse">
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <div key={star} className="w-5 h-5 bg-gray-200 dark:bg-gray-700 rounded" />
+                  ))}
+                </div>
+                <div className="space-y-3 mb-6">
+                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6" />
+                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse" />
+                  <div className="flex-1 space-y-2">
+                    <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
+                    <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section data-testid="testimonials-section" className="py-20 bg-gradient-to-br from-honey-50 to-wax-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Honeycomb Pattern Background */}

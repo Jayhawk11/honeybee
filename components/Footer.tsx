@@ -27,7 +27,7 @@ const footerLinks = [
     title: 'CDDO Affiliations',
     links: [
       { name: 'Johnson County CDDO', href: 'https://www.jocogov.org/department/community-developmental-disabilities-organization' },
-      { name: 'Wyandotte County CDDO', href: 'https://www.wycokck.org/Departments/Human-Services/Community-Developmental-Disabilities-Organization' },
+      { name: 'Wyandotte County CDDO', href: 'https://www.wyckck.org/Departments/Human-Services/Community-Developmental-Disabilities-Organization' },
       { name: 'Kansas HCBS IDD Waiver', href: 'https://kdads.ks.gov/disability-services/hcbs' },
     ]
   },
@@ -53,75 +53,29 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2">
-            <Logo variant="tier2" size="lg" href="/" withPattern={false} withParticles={false} className="mb-6" />
+    <footer className="bg-gray-900 dark:bg-black text-white">
+      {/* SECTION 1: Logo Only - Top Border */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-gray-800">
+        <div className="flex justify-center">
+          <Logo variant="tier2" size="sm" showInc={false} href="/" />
+        </div>
+      </div>
 
-            <p className="text-gray-400 mb-6 max-w-md">
-              Honey Bee Community Services, Inc. assists individuals with developmental disabilities to live independently in the community through Residential, Day Supports, and Targeted Case Management. Serving Johnson and Wyandotte Counties in Kansas as an HCBS IDD Waiver provider since 2013.
-            </p>
-
-            {/* Social Links */}
-            <div className="mb-6">
-              <div className="flex items-center gap-4">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative group"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <div className="absolute -inset-2 bg-bee-gold rounded-full opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300" />
-                    <div className="relative w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full group-hover:bg-bee-gold transition-colors duration-300">
-                      <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
-                        {social.icon}
-                      </span>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-2 text-sm text-gray-400 mb-6">
-              <p className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-bee-gold-dark rounded-full"></span>
-                Founded in 2013
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-bee-gold-dark rounded-full"></span>
-                Serving Kansas City metropolitan area
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-bee-gold-dark rounded-full"></span>
-                HCBS IDD Waiver Provider for Kansas
-              </p>
-            </div>
-
-            <div className="text-sm text-gray-400 space-y-2">
-              <p className="font-medium text-white mb-2">Mailing Address:</p>
-              <p className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-bee-gold-dark rounded-full"></span>
-                PO Box 23532, Overland Park, KS 66283
-              </p>
-            </div>
-          </div>
-
+      {/* SECTION 2: Links Only - Middle Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {footerLinks.map((column) => (
-            <div key={column.title}>
-              <h3 className="text-lg font-semibold mb-4">
+            <div key={column.title} className="min-w-0">
+              <h3 className="text-lg font-semibold mb-3 text-white">
                 {column.title}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {column.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-bee-gold-dark transition-colors"
+                      className="text-gray-400 hover:text-amber-500 transition-colors text-sm block"
+                      title={link.name}
                     >
                       {link.name}
                     </Link>
@@ -131,22 +85,67 @@ export default function Footer() {
             </div>
           ))}
         </div>
+      </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Honey Bee Community Services, Inc. All rights reserved.
-          </p>
+      {/* SECTION 3: Organization Info + Copyright - Bottom */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Left: Organization Info */}
+          <div className="space-y-3">
+            <p className="text-gray-400 text-sm">
+              Empowering individuals with disabilities to live independently.
+            </p>
 
-          <div className="flex items-center gap-6 text-sm text-gray-400">
-            <a href="#" className="hover:text-bee-gold-dark transition-colors">
-              Accessibility
-            </a>
-            <a href="#" className="hover:text-bee-gold-dark transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-bee-gold-dark transition-colors">
-              Terms
-            </a>
+            <div className="flex items-center gap-3 text-sm text-gray-400 mb-3">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="absolute -inset-1.5 bg-amber-500 rounded-full opacity-0 group-hover:opacity-30 blur-sm transition-opacity duration-300" />
+                  <div className="relative w-9 h-9 flex items-center justify-center bg-gray-800 rounded-full group-hover:bg-amber-500 transition-colors duration-300">
+                    <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
+                      {social.icon}
+                    </span>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+            <div className="space-y-1.5 text-sm text-gray-400">
+              <p className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                Founded in 2013
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                Serving Kansas City
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Copyright */}
+          <div className="text-sm space-y-3">
+            <p className="text-gray-400">
+              © {new Date().getFullYear()} Honey Bee Community Services, Inc. All rights reserved.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+                Accessibility
+              </a>
+              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+                Privacy
+              </a>
+              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors">
+                Terms
+              </a>
+            </div>
           </div>
         </div>
       </div>

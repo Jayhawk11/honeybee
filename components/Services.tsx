@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -62,6 +63,43 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 }
 
 export default function Services() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 200)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isLoaded) {
+    return (
+      <Section
+        id="services"
+        data-testid="services-section"
+        title="Our Services"
+        description="Comprehensive support services tailored to help individuals with intellectual and developmental disabilities live fulfilling, independent lives"
+        className="bg-white dark:bg-gray-900"
+        backgroundPattern={{ size: 'md', opacity: 0.05, animate: false }}
+      >
+        <div className="space-y-24">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse" />
+                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse w-3/4" />
+                <div className="space-y-3">
+                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-5/6" />
+                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-4/5" />
+                </div>
+              </div>
+              <div className="h-80 lg:h-96 bg-gray-200 dark:bg-gray-700 rounded-3xl animate-pulse" />
+            </div>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
   return (
     <Section
       id="services"

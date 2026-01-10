@@ -136,12 +136,12 @@ export default function Gallery() {
     <section id="gallery" data-testid="gallery-section" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           style={{ willChange: 'opacity, transform' }}
-           className="text-center mb-16"
-         >
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            animate={{ opacity: isLoaded ? 1 : 0 }}
+            className="flex flex-wrap justify-center gap-3 mb-12"
+          >
           <div className="inline-flex items-center justify-center gap-2 mb-6">
             <MagnifyingGlassIcon className="w-8 h-8 text-primary-400" />
           </div>

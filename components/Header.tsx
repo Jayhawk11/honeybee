@@ -8,11 +8,11 @@ import Logo from '@/components/Logo'
 import { useTheme } from '@/contexts/ThemeContext'
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services', hasSubmenu: true },
-  { name: 'Our Vision', href: '/our-vision' },
-  { name: 'History', href: '/history' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Home', href: '/', prefetch: true },
+  { name: 'Services', href: '/services', hasSubmenu: true, prefetch: true },
+  { name: 'Our Vision', href: '/our-vision', prefetch: true },
+  { name: 'History', href: '/history', prefetch: false },
+  { name: 'Contact', href: '/#contact', prefetch: true },
 ]
 
 const serviceSubItems = [
@@ -62,6 +62,7 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
+      style={{ willChange: 'transform' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-lg'
@@ -139,15 +140,15 @@ export default function Header() {
                     </AnimatePresence>
                   </>
                  ) : (
-                  <Link
-                    href={item.href}
-                    prefetch={item.href === '/' || item.href === '/services' || item.href === '/our-vision' || item.href === '/#contact'}
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-400 dark:hover:text-primary-400 transition-colors font-medium"
-                    data-testid={`nav-${item.href.replace(/\//g, '').replace(/-/g, '')}`}
-                  >
-                    {item.name}
-                  </Link>
-                )}
+                   <Link
+                     href={item.href}
+                     prefetch={item.prefetch}
+                     className="text-gray-700 dark:text-gray-300 hover:text-primary-400 dark:hover:text-primary-400 transition-colors font-medium"
+                     data-testid={`nav-${item.href.replace(/\//g, '').replace(/-/g, '')}`}
+                   >
+                     {item.name}
+                   </Link>
+                 )}
               </div>
             ))}
           </nav>
@@ -254,15 +255,16 @@ export default function Header() {
                           )}
                         </AnimatePresence>
                       </>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
+                     ) : (
+                       <Link
+                         href={item.href}
+                         prefetch={item.prefetch}
+                         className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium"
+                         onClick={() => setIsMobileMenuOpen(false)}
+                       >
+                         {item.name}
+                       </Link>
+                     )}
                   </div>
                 ))}
               </nav>

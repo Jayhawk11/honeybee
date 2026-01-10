@@ -17,6 +17,7 @@ export function FadeIn({ children, delay, delayIndex, className, ...props }: Sec
       viewport={{ once: true }}
       transition={{ delay: delay !== undefined ? delay : delayIndex ? delayIndex * 0.1 : 0 }}
       className={className}
+      style={{ willChange: 'opacity, transform' }}
       {...props}
     >
       {children}
@@ -31,6 +32,7 @@ export function FadeInLeft({ children, className, ...props }: SectionMotionProps
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       className={className}
+      style={{ willChange: 'opacity, transform' }}
       {...props}
     >
       {children}
@@ -45,6 +47,7 @@ export function FadeInRight({ children, className, ...props }: SectionMotionProp
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       className={className}
+      style={{ willChange: 'opacity, transform' }}
       {...props}
     >
       {children}

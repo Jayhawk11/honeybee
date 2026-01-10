@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
 import { Section } from '@/components/layout/Section'
@@ -7,6 +8,40 @@ import { FadeIn, FadeInLeft, FadeInRight } from '@/lib/animations'
 import { aboutData } from '@/data/about'
 
 export default function About() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 200)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isLoaded) {
+    return (
+      <Section
+        id="about"
+        data-testid="about-section"
+        title="About HBCS"
+        description="Founded in 2013, Honey Bee Community Services has been dedicated to empowering individuals with intellectual and developmental disabilities to live their best lives"
+        className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+        backgroundPattern={{ size: 'md', opacity: 0.06, animate: false }}
+      >
+        <div className="space-y-16 mb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-4">
+              <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse w-3/4" />
+              <div className="space-y-2">
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-5/6" />
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-4/5" />
+              </div>
+            </div>
+            <div className="h-64 lg:h-96 bg-gray-200 dark:bg-gray-700 rounded-3xl animate-pulse" />
+          </div>
+        </div>
+      </Section>
+    )
+  }
+
   return (
     <Section
       id="about"

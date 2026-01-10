@@ -1,0 +1,41 @@
+
+> hbcs-website@1.0.0 dev
+> next dev
+
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.187:3000
+- Environments: .env.local
+- Experiments (use with caution):
+  · cpus: 2
+  · optimizePackageImports
+
+✓ Starting...
+✓ Ready in 1479ms
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 923ms (compile: 790ms, render: 133ms)
+ GET / 200 in 31ms (compile: 4ms, render: 27ms)
+✓ Compiled in 49ms
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 110ms (compile: 47ms, render: 64ms)
+✓ Compiled in 63ms
+✓ Compiled in 40ms
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 99ms (compile: 41ms, render: 57ms)
+ GET / 200 in 29ms (compile: 3ms, render: 26ms)
+✓ Compiled in 44ms
+✓ Compiled in 50ms
+✓ Compiled in 55ms
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 87ms (compile: 51ms, render: 35ms)
+ GET / 200 in 86ms (compile: 66ms, render: 20ms)
+✓ Compiled in 49ms
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 101ms (compile: 38ms, render: 63ms)
+✓ Compiled in 52ms
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 90ms (compile: 35ms, render: 55ms)
+ GET / 200 in 32ms (compile: 2ms, render: 30ms)
+ GET / 200 in 35ms (compile: 3ms, render: 32ms)
+ GET / 200 in 26ms (compile: 2ms, render: 23ms)
+ GET / 200 in 29ms (compile: 3ms, render: 27ms)
