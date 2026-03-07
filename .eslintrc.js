@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'plugin:jsx-a11y/recommended'],
+  extends: ['next/core-web-vitals'],
   rules: {
     '@next/next/no-img-element': 'off',
   },
