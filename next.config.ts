@@ -1,16 +1,10 @@
 import type { NextConfig } from 'next'
 import withBundleAnalyzer from '@next/bundle-analyzer'
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
-  register: true,
-  skipWaiting: true,
-})
 
 /**
  * Next.js Configuration
  * Optimized for fast development and production builds
- * Performance: Added Performance Budget, HTTP/2, React Strict Mode, PWA
+ * Performance: Added Performance Budget, HTTP/2, React Strict Mode
  */
 
 const baseConfig: NextConfig = {
@@ -76,4 +70,4 @@ const configWithBundleAnalyzer = withBundleAnalyzer({
 
 const finalConfig = configWithBundleAnalyzer(baseConfig)
 
-export default withPWA(finalConfig)
+export default finalConfig
