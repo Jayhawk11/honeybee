@@ -44,7 +44,7 @@ export default function Header() {
       <header className={`fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20 lg:h-24 xl:h-28">
-            <Logo variant="tier3" size="md" href="/" />
+            <Logo variant="tier3" size="md" href="/" compactText={false} />
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <span key={item.name} className="text-gray-700 dark:text-gray-300 font-medium">
@@ -73,7 +73,7 @@ export default function Header() {
           <div className="flex items-center w-full h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Logo variant="tier1" size="md" href="/" />
+              <Logo variant="tier1" size="md" href="/" compactText={false} />
             </div>
 
             {/* Desktop Navigation */}

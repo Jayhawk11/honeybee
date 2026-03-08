@@ -54,7 +54,7 @@ export default function Logo({
       {/* Compact Logo Text for Mobile */}
       {showText && (
         <div className="relative z-10 flex-shrink-0 md:hidden">
-          <LogoText size={size} showInc={false} compact={true} />
+          <LogoText size={size} showInc={false} compact={compactText} />
         </div>
       )}
     </div>

@@ -26,7 +26,7 @@ export const services: ServiceData[] = [
     ],
     color: 'from-honey-400 to-honey-600',
     bgColor: 'bg-honey-50 dark:bg-honey-900/20',
-    image: '/images/logo-icon-128.png'
+    image: '/images/residential-supports.jpg'
   },
   {
     id: 'services-day',

@@ -13,7 +13,7 @@ export default function LogoText({ size = 'md', showInc = true, compact = false 
   const themeContext = useTheme()
   const theme = themeContext?.theme || 'light'
 
-  const text = compact ? 'Honeybee' : 'Honeybee Community Services'
+  const text = compact ? 'Honey Bee' : 'Honey Bee Community Services'
 
   const sizeClasses = {
     sm: 'text-lg md:text-xl lg:text-2xl xl:text-3xl',
@@ -67,7 +67,7 @@ export default function LogoText({ size = 'md', showInc = true, compact = false 
                 : 'from-amber-200 via-yellow-100 to-amber-300'
             }`}
           >
-            {word}
+            {word}{wordIndex < words.length - 1 && ' '}
           </motion.span>
         ))}
       </motion.div>

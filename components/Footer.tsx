@@ -57,7 +57,7 @@ export default function Footer() {
       {/* SECTION 1: Logo Only - Top Border */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-gray-800">
         <div className="flex justify-center">
-          <Logo variant="tier2" size="sm" showInc={false} href="/" />
+          <Logo variant="tier2" size="sm" showInc={false} href="/" compactText={false} />
         </div>
       </div>
 
@@ -106,6 +106,7 @@ export default function Footer() {
                   className="relative group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  aria-label={`Visit our ${social.name} page`}
                 >
                   <div className="absolute -inset-1.5 bg-amber-500 rounded-full opacity-0 group-hover:opacity-30 blur-sm transition-opacity duration-300" />
                   <div className="relative w-9 h-9 flex items-center justify-center bg-gray-800 rounded-full group-hover:bg-amber-500 transition-colors duration-300">
