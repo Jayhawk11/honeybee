@@ -104,10 +104,10 @@ export default function Contact() {
                           {item.value}
                         </a>
                         <a
-                          href="mailto:ashleigh.young@hbcs.care"
+                          href="mailto:luke.barton@hbcs.care"
                           className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-400 transition-colors"
                         >
-                          ashleigh.young@hbcs.care
+                          luke.barton@hbcs.care
                         </a>
                       </div>
                     ) : item.link ? (

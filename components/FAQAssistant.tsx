@@ -46,7 +46,7 @@ export default function FAQAssistant() {
       if (relevantFAQ) {
         response = `Based on your question about "${relevantFAQ.question}", here's what I can tell you: ${relevantFAQ.answer}`
       } else if (question.toLowerCase().includes('contact') || question.toLowerCase().includes('call') || question.toLowerCase().includes('email')) {
-        response = "You can contact HBCS in several ways: 📞 Phone: Call our main office during business hours. 📧 Email: brett.bosley@hbcs.care or ashleigh.young@hbcs.care. 📧 Website: Use the contact form on any page. 📧 Mail: Send to our mailing address. 💻 In Person: Schedule an appointment. We respond within 24-48 hours!"
+        response = "You can contact HBCS in several ways: 📞 Phone: Call our main office during business hours. 📧 Email: brett.bosley@hbcs.care or luke.barton@hbcs.care. 📧 Website: Use the contact form on any page. 📧 Mail: Send to our mailing address. 💻 In Person: Schedule an appointment. We respond within 24-48 hours!"
       } else if (question.toLowerCase().includes('help') || question.toLowerCase().includes('support')) {
         response = "I'm here to help! HBCS provides Residential Supports, Day Supports, and Targeted Case Management. Which type of support are you interested in learning about? You can also ask about eligibility, costs, or how to make a referral. What would you like to know more about?"
       } else {

@@ -46,7 +46,7 @@ export const faqs: FAQItem[] = [
     id: 'referral',
     category: 'General',
     question: 'How can I make a referral for myself or a loved one?',
-    answer: 'To make a referral, you can: (1) Call us at our main office, (2) Email us at brett.bosley@hbcs.care or ashleigh.young@hbcs.care, or (3) Submit our online contact form with the person\'s information. We will contact you within 24-48 business hours to discuss the referral process and schedule an intake meeting if appropriate.'
+    answer: 'To make a referral, you can: (1) Call us at our main office, (2) Email us at brett.bosley@hbcs.care or luke.barton@hbcs.care, or (3) Submit our online contact form with the person\'s information. We will contact you within 24-48 business hours to discuss the referral process and schedule an intake meeting if appropriate.'
   },
   {
     id: 'hours',
@@ -76,7 +76,7 @@ export const faqs: FAQItem[] = [
     id: 'contact',
     category: 'Contact',
     question: 'How do I contact HBCS?',
-    answer: 'You can reach HBCS in several ways: (1) Phone: our main office number, (2) Email: brett.bosley@hbcs.care or ashleigh.young@hbcs.care, (3) Website: Use our contact form at the bottom of any page, (4) Mail: send letters to our mailing address, or (5) In Person: Schedule an appointment at our office. Check our Contact page for specific phone numbers, email addresses, and mailing address. We respond to all inquiries within 24-48 business hours.'
+    answer: 'You can reach HBCS in several ways: (1) Phone: our main office number, (2) Email: brett.bosley@hbcs.care or luke.barton@hbcs.care, (3) Website: Use our contact form at the bottom of any page, (4) Mail: send letters to our mailing address, or (5) In Person: Schedule an appointment at our office. Check our Contact page for specific phone numbers, email addresses, and mailing address. We respond to all inquiries within 24-48 business hours.'
   },
   {
     id: 'emergency',
