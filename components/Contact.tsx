@@ -32,8 +32,8 @@ const contactInfo = [
   {
     icon: PaperAirplaneIcon,
     label: 'General Inquiries',
-    value: '913-749-8037',
-    link: 'tel:913-749-8037'
+    value: '913-948-3002',
+    link: 'tel:913-948-3002'
   },
   {
     icon: PaperAirplaneIcon,
