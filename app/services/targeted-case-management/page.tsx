@@ -208,6 +208,9 @@ export default function TargetedCaseManagementPage() {
                 Service Area
               </h2>
               <div className="bg-gradient-to-br from-primary-50 to-amber-50 dark:from-primary-900/20 dark:to-amber-900/20 rounded-2xl p-8 border border-primary-100 dark:border-primary-800 mb-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                  Targeted Case Management, Day, and Residential Services
+                </h3>
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                   We are proud to serve individuals in the Kansas City metropolitan area
                 </p>
@@ -221,7 +224,32 @@ export default function TargetedCaseManagementPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-3">
+                  Targeted Case Management
+                </h4>
+                <div className="space-y-2 mb-6">
+                  {[
+                    'Sedgwick County',
+                    'Shawnee County',
+                    'Linn County',
+                    'Douglas County',
+                    'Leavenworth County',
+                    'Miami County',
+                    'Anderson County',
+                    'Osage County',
+                    'Coffey County',
+                    'Franklin County',
+                    'Jefferson County',
+                  ].map((county) => (
+                    <div key={county} className="flex items-center gap-3">
+                      <CheckCircleIcon className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                      <span className="text-lg text-gray-900 dark:text-white font-medium">
+                        {county}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     State: {serviceArea.state}
                   </p>
