@@ -43,10 +43,44 @@ const contactInfo = [
   }
 ]
 
+const CONTACT_FORM_RECIPIENT = 'brett.bosley@hbcs.care'
+const CONTACT_FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_FORM_RECIPIENT}`
+
+const SUBJECT_LABELS: Record<string, string> = {
+  services: 'Services Inquiry',
+  referral: 'Make a Referral',
+  employment: 'Employment Opportunities',
+  partnership: 'Partnership Inquiry',
+  other: 'Other'
+}
+
 export default function Contact() {
   const handleSubmit = async (data: ContactFormData) => {
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    alert('Thank you for your message! We will get back to you soon.')
+    // Delivered by FormSubmit (https://formsubmit.co) to the address below.
+    // Throws on failure so ContactForm can show an error and keep the visitor's text.
+    const response = await fetch(CONTACT_FORM_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || 'Not provided',
+        subject: SUBJECT_LABELS[data.subject] ?? data.subject,
+        message: data.message,
+        _subject: `Website contact form: ${SUBJECT_LABELS[data.subject] ?? data.subject} - ${data.name}`,
+        _replyto: data.email,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    })
+
+    const result = await response.json().catch(() => null)
+    if (!response.ok || !result || String(result.success) !== 'true') {
+      throw new Error(result?.message || 'Message could not be sent')
+    }
   }
 
   return (

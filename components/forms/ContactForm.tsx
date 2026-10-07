@@ -30,6 +30,9 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  // Honeypot: hidden from people, filled in by bots. A filled value means we drop the submission.
+  const [honeypot, setHoneypot] = useState('')
 
   const validateField = (name: string, value: string) => {
     if (name === 'email') {
@@ -45,10 +48,30 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    const newErrors: Record<string, string> = {}
+    for (const [name, value] of Object.entries(formData)) {
+      const error = validateField(name, value.trim())
+      if (error) newErrors[name] = error
+    }
+    setErrors(newErrors)
+    if (Object.keys(newErrors).length > 0) return
+
+    if (honeypot) {
+      // Pretend it worked so bots get no signal, but send nothing.
+      setStatus('success')
+      return
+    }
+
     setIsSubmitting(true)
+    setStatus('idle')
     try {
       await onSubmit(formData)
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+      setStatus('success')
+    } catch {
+      // Keep what the visitor typed so they can retry.
+      setStatus('error')
     } finally {
       setIsSubmitting(false)
     }
@@ -97,6 +120,19 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className={cn('space-y-6', className)}>
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company-website">Leave this field empty</label>
+        <input
+          id="company-website"
+          name="company-website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={e => setHoneypot(e.target.value)}
+        />
+      </div>
+
       <div className="grid md:grid-cols-2 gap-6">
         <FormInput
           id="name"
@@ -176,6 +212,25 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
           </p>
         )}
       </div>
+
+      {status === 'success' && (
+        <p
+          role="status"
+          data-testid="contact-form-success"
+          className="rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm text-green-800 dark:border-green-700 dark:bg-green-900/30 dark:text-green-200"
+        >
+          Thank you for your message! We will get back to you soon.
+        </p>
+      )}
+      {status === 'error' && (
+        <p
+          role="alert"
+          data-testid="contact-form-error"
+          className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200"
+        >
+          Sorry, your message could not be sent. Please try again, or call us at 913-710-1406.
+        </p>
+      )}
 
       <motion.button
         type="submit"
