@@ -76,7 +76,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
       const detail = error instanceof Error ? error.message : ''
       setErrorDetail(
         detail === 'Failed to fetch' || detail.startsWith('NetworkError')
-          ? 'The mail service could not be reached (network problem or a content blocker).'
+          ? 'The site could not be reached. Please check your connection.'
           : detail
       )
       setStatus('error')
