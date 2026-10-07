@@ -79,7 +79,10 @@ export default function Contact() {
 
     const result = await response.json().catch(() => null)
     if (!response.ok || !result || String(result.success) !== 'true') {
-      throw new Error(result?.message || 'Message could not be sent')
+      // Surface the mail service's own reason (for example "This form needs Activation")
+      // so a failure can be diagnosed from the page instead of guessed at.
+      console.error('Contact form delivery failed', { status: response.status, result })
+      throw new Error(result?.message || `Mail service responded with status ${response.status}`)
     }
   }
 

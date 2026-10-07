@@ -31,6 +31,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorDetail, setErrorDetail] = useState('')
   // Honeypot: hidden from people, filled in by bots. A filled value means we drop the submission.
   const [honeypot, setHoneypot] = useState('')
 
@@ -65,12 +66,19 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
 
     setIsSubmitting(true)
     setStatus('idle')
+    setErrorDetail('')
     try {
       await onSubmit(formData)
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
       setStatus('success')
-    } catch {
+    } catch (error) {
       // Keep what the visitor typed so they can retry.
+      const detail = error instanceof Error ? error.message : ''
+      setErrorDetail(
+        detail === 'Failed to fetch' || detail.startsWith('NetworkError')
+          ? 'The mail service could not be reached (network problem or a content blocker).'
+          : detail
+      )
       setStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -229,6 +237,11 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
           className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200"
         >
           Sorry, your message could not be sent. Please try again, or call us at 913-710-1406.
+          {errorDetail && (
+            <span data-testid="contact-form-error-detail" className="mt-1 block text-xs opacity-80">
+              Details: {errorDetail}
+            </span>
+          )}
         </p>
       )}
 
