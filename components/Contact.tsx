@@ -44,7 +44,10 @@ const contactInfo = [
 ]
 
 const CONTACT_FORM_RECIPIENT = 'brett.bosley@hbcs.care'
-const CONTACT_FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_FORM_RECIPIENT}`
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
+// Web3Forms access keys are public by design: the key only identifies which inbox
+// receives the messages. To change the recipient, create a new key at web3forms.com.
+const WEB3FORMS_ACCESS_KEY = '98a1361c-c6f6-4e6b-bbbe-98132aecabbf'
 
 const SUBJECT_LABELS: Record<string, string> = {
   services: 'Services Inquiry',
@@ -56,32 +59,30 @@ const SUBJECT_LABELS: Record<string, string> = {
 
 export default function Contact() {
   const handleSubmit = async (data: ContactFormData) => {
-    // Sent from the visitor's browser to FormSubmit (https://formsubmit.co), which emails
-    // it to CONTACT_FORM_RECIPIENT. FormSubmit rejects requests made from a server (403),
-    // so this must stay a browser request. Throws on failure so ContactForm can show an
-    // error, keep the visitor's text, and offer the direct-email fallback.
+    // Sent from the visitor's browser to Web3Forms (https://web3forms.com), which emails
+    // it to the inbox the access key was created for. Sent as form data so the browser
+    // makes a simple request with no CORS preflight. Throws on failure so ContactForm
+    // can show an error, keep the visitor's text, and offer the direct-email fallback.
     const subject = SUBJECT_LABELS[data.subject] ?? data.subject
-    const response = await fetch(CONTACT_FORM_ENDPOINT, {
+    const body = new FormData()
+    body.append('access_key', WEB3FORMS_ACCESS_KEY)
+    body.append('subject', `Website contact form: ${subject} - ${data.name}`)
+    body.append('from_name', 'HBCS Website')
+    body.append('replyto', data.email)
+    body.append('name', data.name)
+    body.append('email', data.email)
+    body.append('phone', data.phone || 'Not provided')
+    body.append('topic', subject)
+    body.append('message', data.message)
+
+    const response = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        phone: data.phone || 'Not provided',
-        subject,
-        message: data.message,
-        _subject: `Website contact form: ${subject} - ${data.name}`,
-        _replyto: data.email,
-        _template: 'table',
-        _captcha: 'false'
-      })
+      headers: { Accept: 'application/json' },
+      body
     })
 
     const result = await response.json().catch(() => null)
-    if (!response.ok || !result || String(result.success) !== 'true') {
+    if (!response.ok || !result || result.success !== true) {
       console.error('Contact form delivery failed', { status: response.status, result })
       throw new Error(result?.message || `Mail service responded with status ${response.status}`)
     }
