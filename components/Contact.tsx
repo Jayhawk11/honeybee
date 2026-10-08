@@ -43,20 +43,47 @@ const contactInfo = [
   }
 ]
 
+const CONTACT_FORM_RECIPIENT = 'brett.bosley@hbcs.care'
+const CONTACT_FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_FORM_RECIPIENT}`
+
+const SUBJECT_LABELS: Record<string, string> = {
+  services: 'Services Inquiry',
+  referral: 'Make a Referral',
+  employment: 'Employment Opportunities',
+  partnership: 'Partnership Inquiry',
+  other: 'Other'
+}
+
 export default function Contact() {
   const handleSubmit = async (data: ContactFormData) => {
-    // Posts to our own /api/contact route, which forwards the message by email.
-    // Throws on failure so ContactForm can show an error and keep the visitor's text.
-    const response = await fetch('/api/contact', {
+    // Sent from the visitor's browser to FormSubmit (https://formsubmit.co), which emails
+    // it to CONTACT_FORM_RECIPIENT. FormSubmit rejects requests made from a server (403),
+    // so this must stay a browser request. Throws on failure so ContactForm can show an
+    // error, keep the visitor's text, and offer the direct-email fallback.
+    const subject = SUBJECT_LABELS[data.subject] ?? data.subject
+    const response = await fetch(CONTACT_FORM_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || 'Not provided',
+        subject,
+        message: data.message,
+        _subject: `Website contact form: ${subject} - ${data.name}`,
+        _replyto: data.email,
+        _template: 'table',
+        _captcha: 'false'
+      })
     })
 
     const result = await response.json().catch(() => null)
-    if (!response.ok || !result?.ok) {
+    if (!response.ok || !result || String(result.success) !== 'true') {
       console.error('Contact form delivery failed', { status: response.status, result })
-      throw new Error(result?.message || `Server responded with status ${response.status}`)
+      throw new Error(result?.message || `Mail service responded with status ${response.status}`)
     }
   }
 
@@ -144,7 +171,7 @@ export default function Contact() {
               Send a Message
             </h3>
 
-            <ContactForm onSubmit={handleSubmit} />
+            <ContactForm onSubmit={handleSubmit} fallbackEmail={CONTACT_FORM_RECIPIENT} />
           </FadeInRight>
         </div>
       </div>

@@ -17,10 +17,12 @@ export interface ContactFormData {
 
 interface ContactFormProps {
   onSubmit: (data: ContactFormData) => Promise<void> | void
+  /** Address offered as a "send it from your own email" link when delivery fails. */
+  fallbackEmail?: string
   className?: string
 }
 
-export function ContactForm({ onSubmit, className }: ContactFormProps) {
+export function ContactForm({ onSubmit, fallbackEmail, className }: ContactFormProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -76,7 +78,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
       const detail = error instanceof Error ? error.message : ''
       setErrorDetail(
         detail === 'Failed to fetch' || detail.startsWith('NetworkError')
-          ? 'The site could not be reached. Please check your connection.'
+          ? 'The mail service could not be reached (network problem or a content blocker).'
           : detail
       )
       setStatus('error')
@@ -117,6 +119,15 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
       return newErrors
     })
   }
+
+  // Pre-filled email carrying what the visitor typed, for when the form cannot deliver.
+  const fallbackHref = fallbackEmail
+    ? `mailto:${fallbackEmail}?subject=${encodeURIComponent(
+        `Website message from ${formData.name || 'a visitor'}`
+      )}&body=${encodeURIComponent(
+        `${formData.message}\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}`
+      )}`
+    : undefined
 
   const subjectOptions: FormSelectOption[] = [
     { value: 'services', label: 'Services Inquiry' },
@@ -237,6 +248,15 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
           className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200"
         >
           Sorry, your message could not be sent. Please try again, or call us at 913-710-1406.
+          {fallbackHref && (
+            <a
+              href={fallbackHref}
+              data-testid="contact-form-email-fallback"
+              className="mt-1 block font-semibold underline"
+            >
+              Or send this message from your own email
+            </a>
+          )}
           {errorDetail && (
             <span data-testid="contact-form-error-detail" className="mt-1 block text-xs opacity-80">
               Details: {errorDetail}
